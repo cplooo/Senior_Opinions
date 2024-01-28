@@ -65,7 +65,10 @@ df_streamlit = []
 #df_senior.columns[9][3:]  ## '系師資素質與專長'
 #type(df_senior.iloc[:,9])  ## pandas.core.series.Series
 ##### 计算不同子字符串的出现次数
-value_counts = df_senior.iloc[:,9].value_counts()   
+value_counts = df_senior.iloc[:,9].value_counts()  
+#type(value_counts) ## pandas.core.series.Series
+## 更改 Series 的名称
+value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
@@ -96,6 +99,8 @@ df_streamlit.append(result_df_rr)
 #df_senior.columns[10][3:]  ## '系的教學品質'
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,10].value_counts()
+## 更改 Series 的名称
+value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
@@ -125,6 +130,8 @@ df_streamlit.append(result_df_rr)
 #df_senior.columns[11][3:]  ## '系上師生間的互動關係'
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,11].value_counts()
+## 更改 Series 的名称
+value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
@@ -154,6 +161,8 @@ df_streamlit.append(result_df_rr)
 # df_senior.iloc[:,12] ## 4. 系課程內容
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,12].value_counts()
+## 更改 Series 的名称
+value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
@@ -179,6 +188,8 @@ df_streamlit.append(result_df_rr)
 # df_senior.iloc[:,13] ## 5. 系對學生思辨與探究能力的培養
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,13].value_counts()
+## 更改 Series 的名称
+value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
@@ -205,6 +216,8 @@ df_streamlit.append(result_df_rr)
 # df_senior.iloc[:,14] ## 6. 系對學生創新或創造力的培養
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,14].value_counts()
+## 更改 Series 的名称
+value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
