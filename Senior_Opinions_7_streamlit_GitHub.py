@@ -46,8 +46,8 @@ desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿�
 ###### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
 def adjust_df(df, order):
     # 确保 DataFrame 包含所有滿意度值
-    for satisfaction in order:
-        if satisfaction not in df['pp'].values:
+    for pp in order:
+        if pp not in df['pp'].values:
             df = df.append({'pp': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 
     # 根据期望的顺序重新排列 DataFrame
