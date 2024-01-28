@@ -75,14 +75,14 @@ result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)}
 #### 將 index 變column
 result_df_r = result_df.reset_index()
 #### 將新的 column 重新命名
-result_df_r.rename(columns={'index': 'pp'}, inplace=True)
+result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # #### 調整滿意度次序
 # result_df_rr = adjust_df(result_df_r, desired_order)
 # for satisfaction in desired_order:
 #     if satisfaction not in result_df_r['Satisfaction'].values:
 #         result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 # ## 根据期望的顺序重新排列 DataFrame
-# result_df_rr = result_df_r.set_index('Satisfaction').reindex(desired_order).reset_index()
+# result_df_rr = result_df_r.set_index('滿意度').reindex(desired_order).reset_index()
 
 df_streamlit.append(result_df_r)  
 #### 使用Streamlit展示DataFrame
@@ -105,7 +105,7 @@ result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)}
 #### 將 index 變column
 result_df_r = result_df.reset_index()
 #### 將新的 column 重新命名
-result_df_r.rename(columns={'index': 'pp'}, inplace=True)
+result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # #### 調整滿意度次序
 # result_df_rr = adjust_df(result_df_r, desired_order)
 # for satisfaction in desired_order:
@@ -134,7 +134,7 @@ result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)}
 #### 將 index 變column
 result_df_r = result_df.reset_index()
 #### 將新的 column 重新命名
-result_df_r.rename(columns={'index': 'pp'}, inplace=True)
+result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # #### 調整滿意度次序
 # result_df_rr = adjust_df(result_df_r, desired_order)
 # for satisfaction in desired_order:
@@ -163,7 +163,7 @@ result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)}
 #### 將 index 變column
 result_df_r = result_df.reset_index()
 #### 將新的 column 重新命名
-result_df_r.rename(columns={'index': 'pp'}, inplace=True)
+result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # #### 調整滿意度次序
 # result_df_rr = adjust_df(result_df_r, desired_order)
 # for satisfaction in desired_order:
@@ -188,7 +188,7 @@ result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)}
 #### 將 index 變column
 result_df_r = result_df.reset_index()
 #### 將新的 column 重新命名
-result_df_r.rename(columns={'index': 'pp'}, inplace=True)
+result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # #### 調整滿意度次序
 # result_df_rr = adjust_df(result_df_r, desired_order)
 # for satisfaction in desired_order:
@@ -214,7 +214,7 @@ result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)}
 #### 將 index 變column
 result_df_r = result_df.reset_index()
 #### 將新的 column 重新命名
-result_df_r.rename(columns={'index': 'pp'}, inplace=True)
+result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # #### 調整滿意度次序
 # result_df_rr = adjust_df(result_df_r, desired_order)
 # for satisfaction in desired_order:
