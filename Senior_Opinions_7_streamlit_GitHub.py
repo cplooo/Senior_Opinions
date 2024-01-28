@@ -20,7 +20,7 @@ import streamlit.components.v1 as stc
 # #print(df_senior_original)
 
 ####### 读取Excel文件
-df_senior_original = pd.read_excel('df_senior_short.xlsx')
+df_senior_original = pd.read_excel('df_senior.xlsx')
 
 
 
