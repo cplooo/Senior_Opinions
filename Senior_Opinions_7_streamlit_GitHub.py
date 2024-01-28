@@ -48,7 +48,7 @@ def adjust_df(df, order):
     # 确保 DataFrame 包含所有滿意度值
     for pp in order:
         if pp not in df['pp'].values:
-            df = df.append({'pp': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
+            df = df.append({'pp': pp, '人數': 0, '比例': 0}, ignore_index=True)
 
     # 根据期望的顺序重新排列 DataFrame
     df = df.set_index('pp').reindex(order).reset_index()
