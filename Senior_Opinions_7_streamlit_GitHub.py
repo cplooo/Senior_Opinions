@@ -1266,9 +1266,12 @@ data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
 #### 绘制盒须图
 ### 設置中文顯示
 ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
-matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
-matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
-matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+# matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
+# matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+# matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
+plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+
 plt.figure(figsize=(10, 6))
 sns.boxplot(data=data)
 ### 标示平均值
@@ -1300,9 +1303,12 @@ data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
 #### 绘制盒须图
 ### 設置中文顯示
 ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
-matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
-matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
-matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+# matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
+# matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+# matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
+plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+
 plt.figure(figsize=(10, 6))
 sns.boxplot(data=data)
 ### 标示平均值
