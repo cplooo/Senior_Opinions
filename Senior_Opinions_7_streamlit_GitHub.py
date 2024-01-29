@@ -79,6 +79,13 @@ def adjust_df_2(df, order):
 
 
 
+####### 轉變資料型態為float:
+###### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
+def to_numeric_ignore_special_str(column):
+    return pd.to_numeric(column, errors='coerce')
+
+
+
 
 df_streamlit = []
 column_title = []
@@ -1252,9 +1259,9 @@ st.markdown("##")  ## 更大的间隔
 ###### Part3-4 整體而言，您對畢業系所在辦理教學上的評價如何？
 # df_senior.iloc[:,30] ## 4. 整體而言，您對畢業系所在辦理教學上的評價如何？
 ##### 轉變資料型態為float:
-#### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
-def to_numeric_ignore_special_str(column):
-    return pd.to_numeric(column, errors='coerce')
+# #### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
+# def to_numeric_ignore_special_str(column):
+#     return pd.to_numeric(column, errors='coerce')
 #### 将某行转换为数值类型float，忽略无法转换的值
 df_senior_SomeColumn_numeric = df_senior[df_senior.columns[30]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
 # type(df_senior_SomeColumn_numeric)  ## pandas.core.series.Series
@@ -1292,15 +1299,15 @@ plt.xticks(fontsize=14)  #
 # # 在Streamlit中显示绘图
 st.pyplot(plt)
 
-
+st.markdown("##")  ## 更大的间隔
 
 
 ###### Part3-5 和國內其他類似系所相較，您覺得畢業的系所競爭力如何？
 # df_senior.iloc[:,31] ## 5. 和國內其他類似系所相較，您覺得畢業的系所競爭力如何？
 ##### 轉變資料型態為float:
-#### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
-def to_numeric_ignore_special_str(column):
-    return pd.to_numeric(column, errors='coerce')
+# #### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
+# def to_numeric_ignore_special_str(column):
+#     return pd.to_numeric(column, errors='coerce')
 #### 将某行转换为数值类型float，忽略无法转换的值
 df_senior_SomeColumn_numeric = df_senior[df_senior.columns[31]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
 ##### 畫盒鬚圖:
@@ -1324,12 +1331,12 @@ sns.boxplot(data=data)
 ### 标示平均值
 for i in range(data.shape[1]):
     y = data.iloc[:, i].mean()
-    plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 14)
+    plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
 # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-plt.title('Boxplot of Competitive Strength of Graduation Departments Compared to Other Similar Domestic Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 17)
+plt.title('Boxplot of Competitive Strength of Graduation Departments Compared to Other Similar Domestic Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 18)
 plt.ylim(0, 11)
-plt.ylabel('Scores',fontsize = 16)
-plt.xticks(fontsize=16)  #
+plt.ylabel('Scores',fontsize = 17)
+plt.xticks(fontsize=17)  #
 # plt.show()
 # # 在Streamlit中显示绘图
 st.pyplot(plt)
