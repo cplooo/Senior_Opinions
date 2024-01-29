@@ -58,6 +58,26 @@ def adjust_df(df, order):
     return df
 
 
+####### 調整意願度次序
+###### 定义期望的意願度顺序
+desired_order_2 = ['絕對會', '應該會', '應該不會', '絕對不會']
+### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
+def adjust_df_2(df, order):
+    # 确保 DataFrame 包含所有滿意度值
+    for qq in order:
+        if qq not in df['意願度'].values:
+            # df = df.append({'意願度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
+            # 创建一个新的 DataFrame，用于添加新的row
+            new_row = pd.DataFrame({'意願度': [qq], '人數': [0], '比例': [0]})
+            # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
+            df = pd.concat([df, new_row], ignore_index=True)
+
+
+    # 根据期望的顺序重新排列 DataFrame
+    df = df.set_index('意願度').reindex(order).reset_index()
+    return df
+
+
 
 
 df_streamlit = []
@@ -1006,6 +1026,25 @@ df_streamlit.append(result_df_r)
 ####### Part8  
 ###### Part8-1 如果可以重來，您是否仍會就讀同一主修領域、學群或學類？
 # df_senior.iloc[:,55] ## 1. 如果可以重來，您是否仍會就讀同一主修領域、學群或學類？
+column_title.append(df_senior.columns[55][3:])
+
+##### 计算不同子字符串的出现次数
+value_counts = df_senior.iloc[:,55].value_counts()
+
+##### 计算不同子字符串的比例
+proportions = value_counts / value_counts.sum()
+
+##### 轉換成 numpy array
+value_counts_numpy = value_counts.values
+proportions_numpy = proportions.values
+willing_numpy = proportions.index.to_numpy()
+
+##### 创建一个新的DataFrame来显示结果
+result_df = pd.DataFrame({'意願度':willing_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+#### 調整滿意度次序
+result_df_r = adjust_df_2(result_df, desired_order_2)
+#### 存到 list 'df_streamlit'
+df_streamlit.append(result_df_r)
 
 
 
@@ -1014,11 +1053,49 @@ df_streamlit.append(result_df_r)
 
 ###### Part8-2 如果可以重來，您是否仍會就讀本校的同一系？
 # df_senior.iloc[:,56] ## 2. 如果可以重來，您是否仍會就讀本校的同一系？
+column_title.append(df_senior.columns[56][3:])
+
+##### 计算不同子字符串的出现次数
+value_counts = df_senior.iloc[:,56].value_counts()
+
+##### 计算不同子字符串的比例
+proportions = value_counts / value_counts.sum()
+
+##### 轉換成 numpy array
+value_counts_numpy = value_counts.values
+proportions_numpy = proportions.values
+willing_numpy = proportions.index.to_numpy()
+
+##### 创建一个新的DataFrame来显示结果
+result_df = pd.DataFrame({'意願度':willing_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+#### 調整滿意度次序
+result_df_r = adjust_df_2(result_df, desired_order_2)
+#### 存到 list 'df_streamlit'
+df_streamlit.append(result_df_r)
 
 
 
 ###### Part8-3 如果可以重來，您是否仍會就讀本校？
 # df_senior.iloc[:,57] ## 3. 如果可以重來，您是否仍會就讀本校？
+column_title.append(df_senior.columns[57][3:])
+
+##### 计算不同子字符串的出现次数
+value_counts = df_senior.iloc[:,57].value_counts()
+
+##### 计算不同子字符串的比例
+proportions = value_counts / value_counts.sum()
+
+##### 轉換成 numpy array
+value_counts_numpy = value_counts.values
+proportions_numpy = proportions.values
+willing_numpy = proportions.index.to_numpy()
+
+##### 创建一个新的DataFrame来显示结果
+result_df = pd.DataFrame({'意願度':willing_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+#### 調整滿意度次序
+result_df_r = adjust_df_2(result_df, desired_order_2)
+#### 存到 list 'df_streamlit'
+df_streamlit.append(result_df_r)
 
 
 
