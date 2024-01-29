@@ -43,17 +43,16 @@ df_senior = df_senior_original[df_senior_original['畢業院系']==department_ch
 ###### 定义期望的滿意度顺序
 desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿意']
 
-# ###### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
-# def adjust_df(df, order):
-#     # 确保 DataFrame 包含所有滿意度值
-#     for pp in order:
-#         if pp not in df['pp'].values:
-#             df = df.append({'pp': pp, '人數': 0, '比例': 0}, ignore_index=True)
+###### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
+def adjust_df(df, order):
+    # 确保 DataFrame 包含所有滿意度值
+    for pp in order:
+        if pp not in df['滿意度'].values:
+            df = df.append({'滿意度': pp, '人數': 0, '比例': 0}, ignore_index=True)
 
-#     # 根据期望的顺序重新排列 DataFrame
-#     df = df.set_index('pp').reindex(order).reset_index()
-#     return df
-
+    # 根据期望的顺序重新排列 DataFrame
+    df = df.set_index('滿意度').reindex(order).reset_index()
+    return df
 
 
 
@@ -86,8 +85,9 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 # result_df_r = result_df.reset_index()
 # #### 將新的 column 重新命名
 # result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-# #### 調整滿意度次序
-# result_df_rr = adjust_df(result_df_r, desired_order)
+
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
 # for satisfaction in desired_order:
 #     if satisfaction not in result_df_r['Satisfaction'].values:
 #         result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
@@ -95,7 +95,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 # result_df_rr = result_df_r.set_index('滿意度').reindex(desired_order).reset_index()
 
 # df_streamlit.append(result_df_rr)  
-df_streamlit.append(result_df)  
+df_streamlit.append(result_df_r)  
 #### 使用Streamlit展示DataFrame
 # st.write("系師資素質與專長:", result_df_rr)  ##显示索引
 # st.write("<b>系師資素質與專長:</b>", result_df_rr.to_html(index=False), unsafe_allow_html=True)  ##不显示索引
@@ -127,15 +127,16 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 # result_df_r = result_df.reset_index()
 # #### 將新的 column 重新命名
 # result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-# #### 調整滿意度次序
-# result_df_rr = adjust_df(result_df_r, desired_order)
+
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
 # for satisfaction in desired_order:
 #     if satisfaction not in result_df_r['Satisfaction'].values:
 #         result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 # ## 根据期望的顺序重新排列 DataFrame
 # result_df_rr = result_df_r.set_index('Satisfaction').reindex(desired_order).reset_index()
 
-df_streamlit.append(result_df)
+df_streamlit.append(result_df_r)
 # df_streamlit.append(result_df_rr)
 #### 使用Streamlit展示DataFrame
 # st.write("系師資素質與專長:", result_df_rr)  ## 显示索引
@@ -166,15 +167,16 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 # result_df_r = result_df.reset_index()
 # #### 將新的 column 重新命名
 # result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-# #### 調整滿意度次序
-# result_df_rr = adjust_df(result_df_r, desired_order)
+
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
 # for satisfaction in desired_order:
 #     if satisfaction not in result_df_r['Satisfaction'].values:
 #         result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 # ## 根据期望的顺序重新排列 DataFrame
 # result_df_rr = result_df_r.set_index('Satisfaction').reindex(desired_order).reset_index()
 
-df_streamlit.append(result_df)
+df_streamlit.append(result_df_r)
 # df_streamlit.append(result_df_rr)
 #### 使用Streamlit展示DataFrame
 # st.write("系師資素質與專長:", result_df_rr)  ## 显示索引
@@ -205,15 +207,16 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 # result_df_r = result_df.reset_index()
 # #### 將新的 column 重新命名
 # result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-# #### 調整滿意度次序
-# result_df_rr = adjust_df(result_df_r, desired_order)
+
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
 # for satisfaction in desired_order:
 #     if satisfaction not in result_df_r['Satisfaction'].values:
 #         result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 # ## 根据期望的顺序重新排列 DataFrame
 # result_df_rr = result_df_r.set_index('Satisfaction').reindex(desired_order).reset_index()
 
-df_streamlit.append(result_df)
+df_streamlit.append(result_df_r)
 # df_streamlit.append(result_df_rr)
 
 
@@ -241,15 +244,16 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 # result_df_r = result_df.reset_index()
 # #### 將新的 column 重新命名
 # result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-# #### 調整滿意度次序
-# result_df_rr = adjust_df(result_df_r, desired_order)
+
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
 # for satisfaction in desired_order:
 #     if satisfaction not in result_df_r['Satisfaction'].values:
 #         result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 # ## 根据期望的顺序重新排列 DataFrame
 # result_df_rr = result_df_r.set_index('Satisfaction').reindex(desired_order).reset_index()
 
-df_streamlit.append(result_df)
+df_streamlit.append(result_df_r)
 # df_streamlit.append(result_df_rr)
 
 
@@ -278,15 +282,16 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 # result_df_r = result_df.reset_index()
 # #### 將新的 column 重新命名
 # result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-# #### 調整滿意度次序
-# result_df_rr = adjust_df(result_df_r, desired_order)
+
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
 # for satisfaction in desired_order:
 #     if satisfaction not in result_df_r['Satisfaction'].values:
 #         result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 # ## 根据期望的顺序重新排列 DataFrame
 # result_df_rr = result_df_r.set_index('Satisfaction').reindex(desired_order).reset_index()
 
-df_streamlit.append(result_df)
+df_streamlit.append(result_df_r)
 # df_streamlit.append(result_df_rr)
 
 
