@@ -1202,6 +1202,7 @@ df_streamlit.append(result_df_r)
 
 
 ####### Streamlit 呈現
+###### 畫表格
 # 每行显示3个DataFrame
 for i in range(0, 39, 3):   ## end: 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40; start: 0,3,6,9,12,15,18,21,24,27,30,33,36
     
@@ -1254,7 +1255,7 @@ st.markdown(html_content, unsafe_allow_html=True)
 st.markdown("##")  ## 更大的间隔
 
 
-
+###### 畫圖
 with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的評價如何？"):
     ###### Part3-4 整體而言，您對畢業系所在辦理教學上的評價如何？
     # df_senior.iloc[:,30] ## 4. 整體而言，您對畢業系所在辦理教學上的評價如何？
@@ -1286,13 +1287,22 @@ with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的
     
     plt.figure(figsize=(10, 6))
     sns.boxplot(data=data)
-    ### 标示平均值
+
+    #### 標示平均值與四分位數
     for i in range(data.shape[1]):
+        ### 标示平均值
         y = data.iloc[:, i].mean()
         plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        ### 标示四分位數
+        Q1 = data.iloc[:, i].quantile(0.25)
+        Q3 = data.iloc[:, i].quantile(0.75)
+        ## 在图表上标记第一和第三四分位数
+        plt.text(i, Q1, f'{Q1:.2f}', horizontalalignment='center', color='blue', fontsize=12)
+        plt.text(i, Q3, f'{Q3:.2f}', horizontalalignment='center', color='red', fontsize=12)
+
+
     # plt.title('畢業系所教學評價盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
     plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
-    # plt.title('Boxplot: Range 1-10, Numbers Represent Average Values',fontsize = 15)
     plt.ylim(0, 11)
     plt.ylabel('Scores',fontsize = 17)
     plt.xticks(fontsize=17)  #
@@ -1330,10 +1340,22 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
     
     plt.figure(figsize=(10, 6))
     sns.boxplot(data=data)
-    ### 标示平均值
+    
+    #### 標示平均值與四分位數
     for i in range(data.shape[1]):
+        ### 标示平均值
         y = data.iloc[:, i].mean()
         plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        ### 标示四分位數
+        Q1 = data.iloc[:, i].quantile(0.25)
+        Q3 = data.iloc[:, i].quantile(0.75)
+        ## 在图表上标记第一和第三四分位数
+        plt.text(i, Q1, f'{Q1:.2f}', horizontalalignment='center', color='blue', fontsize=12)
+        plt.text(i, Q3, f'{Q3:.2f}', horizontalalignment='center', color='red', fontsize=12)
+        
+
+
+
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
     plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
     plt.ylim(0, 11)
@@ -1373,10 +1395,21 @@ with st.expander("繪圖: 整體而言，您對畢業母校在辦理教學上的
     
     plt.figure(figsize=(10, 6))
     sns.boxplot(data=data)
-    ### 标示平均值
+
+    #### 標示平均值與四分位數
     for i in range(data.shape[1]):
+        ### 标示平均值
         y = data.iloc[:, i].mean()
         plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        ### 标示四分位數
+        Q1 = data.iloc[:, i].quantile(0.25)
+        Q3 = data.iloc[:, i].quantile(0.75)
+        ## 在图表上标记第一和第三四分位数
+        plt.text(i, Q1, f'{Q1:.2f}', horizontalalignment='center', color='blue', fontsize=12)
+        plt.text(i, Q3, f'{Q3:.2f}', horizontalalignment='center', color='red', fontsize=12)
+
+
+
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
     plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
     plt.ylim(0, 11)
@@ -1424,10 +1457,19 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
     
     plt.figure(figsize=(10, 6))
     sns.boxplot(data=data)
-    ### 标示平均值
+
+    #### 標示平均值與四分位數
     for i in range(data.shape[1]):
+        ### 标示平均值
         y = data.iloc[:, i].mean()
         plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        ### 标示四分位數
+        Q1 = data.iloc[:, i].quantile(0.25)
+        Q3 = data.iloc[:, i].quantile(0.75)
+        ## 在图表上标记第一和第三四分位数
+        plt.text(i, Q1, f'{Q1:.2f}', horizontalalignment='center', color='blue', fontsize=12)
+        plt.text(i, Q3, f'{Q3:.2f}', horizontalalignment='center', color='red', fontsize=12)
+
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
     plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
     plt.ylim(0, 11)
