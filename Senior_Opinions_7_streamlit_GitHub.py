@@ -56,12 +56,13 @@ value_counts = df_senior.iloc[:,9].value_counts()
 proportions = value_counts / value_counts.sum()
 # type(proportions)  ## pandas.core.series.Series
 
-value_counts_numpy = value_counts.values
-proportions_numpy = proportions.values
+# value_counts_numpy = value_counts.values
+# proportions_numpy = proportions.values
 
 
 ##### 创建一个新的DataFrame来显示结果
-result_df = pd.DataFrame({'人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+# result_df = pd.DataFrame({'人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
 # type(result_df)  ## pandas.core.frame.DataFrame
 # result_df.index  ## Index(['滿意', '非常滿意', '普通'], dtype='object')
 # result_df.columns  ## Index(['人數', '比例'], dtype='object')
@@ -70,25 +71,15 @@ result_df = pd.DataFrame({'人數': value_counts_numpy,'比例': proportions_num
 
 #### 將 index 變column
 result_df_r = result_df.reset_index()
-'''
-  index  人數      比例
-0    滿意  80  0.5674
-1  非常滿意  40  0.2837
-2    普通  21  0.1489
-'''
+
 
 
 #### 將新的 column 重新命名
 result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
-'''
-    滿意度  人數      比例
-0    滿意  80  0.5674
-1  非常滿意  40  0.2837
-2    普通  21  0.1489
-'''
 
+result_df_rr =  pd.DataFrame(result_df_r.values, columns=result_df_r.columns, index=result_df_r.index)
 
-st.write("系師資素質與專長:", result_df_r.to_html(index=False), unsafe_allow_html=True)
+st.write("系師資素質與專長:", result_df_rr.to_html(index=False), unsafe_allow_html=True)
 
 
 
@@ -103,26 +94,26 @@ value_counts = df_senior.iloc[:,10].value_counts()
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
 
-value_counts_numpy = value_counts.values
-proportions_numpy = proportions.values
+# value_counts_numpy = value_counts.values
+# proportions_numpy = proportions.values
 
 
 ##### 创建一个新的DataFrame来显示结果
-result_df = pd.DataFrame({'人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
-
+#result_df = pd.DataFrame({'人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
 #### 將 index 變column
 result_df_r = result_df.reset_index()
 
 #### 將新的 column 重新命名
 result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 
-
+result_df_rr =  pd.DataFrame(result_df_r.values, columns=result_df_r.columns, index=result_df_r.index)
 
 # #### 使用Streamlit展示DataFrame
 # st.write("系師資素質與專長:", result_df_rr)
 #### 使用Streamlit展示DataFrame，但不显示索引
 # st.write("系的教學品質:", result_df_rr.to_html(index=False), unsafe_allow_html=True)
-st.write("系的教學品質:", result_df_r.to_html(index=False), unsafe_allow_html=True)
+st.write("系的教學品質:", result_df_rr.to_html(index=False), unsafe_allow_html=True)
 
 
 
