@@ -1292,7 +1292,7 @@ with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的
     for i in range(data.shape[1]):
         ### 标示平均值
         y = data.iloc[:, i].mean()
-        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 12)
         ### 标示四分位數
         Q1 = data.iloc[:, i].quantile(0.25)
         Q3 = data.iloc[:, i].quantile(0.75)
@@ -1302,10 +1302,10 @@ with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的
 
 
     # plt.title('畢業系所教學評價盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
+    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('Scores',fontsize = 17)
-    plt.xticks(fontsize=17)  #
+    plt.ylabel('Scores',fontsize = 14)
+    plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
     st.pyplot(plt)
@@ -1345,7 +1345,7 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
     for i in range(data.shape[1]):
         ### 标示平均值
         y = data.iloc[:, i].mean()
-        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 12)
         ### 标示四分位數
         Q1 = data.iloc[:, i].quantile(0.25)
         Q3 = data.iloc[:, i].quantile(0.75)
@@ -1357,10 +1357,10 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
 
 
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
+    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('Scores',fontsize = 17)
-    plt.xticks(fontsize=17)  #
+    plt.ylabel('Scores',fontsize = 14)
+    plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
     st.pyplot(plt)
@@ -1400,7 +1400,7 @@ with st.expander("繪圖: 整體而言，您對畢業母校在辦理教學上的
     for i in range(data.shape[1]):
         ### 标示平均值
         y = data.iloc[:, i].mean()
-        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 12)
         ### 标示四分位數
         Q1 = data.iloc[:, i].quantile(0.25)
         Q3 = data.iloc[:, i].quantile(0.75)
@@ -1411,10 +1411,10 @@ with st.expander("繪圖: 整體而言，您對畢業母校在辦理教學上的
 
 
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
+    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('Scores',fontsize = 17)
-    plt.xticks(fontsize=17)  #
+    plt.ylabel('Scores',fontsize = 14)
+    plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
     st.pyplot(plt)
@@ -1462,7 +1462,7 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
     for i in range(data.shape[1]):
         ### 标示平均值
         y = data.iloc[:, i].mean()
-        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 12)
         ### 标示四分位數
         Q1 = data.iloc[:, i].quantile(0.25)
         Q3 = data.iloc[:, i].quantile(0.75)
@@ -1471,10 +1471,10 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
         plt.text(i, Q3, f'{Q3:.2f}', horizontalalignment='center', color='red', fontsize=12)
 
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
+    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('Scores',fontsize = 17)
-    plt.xticks(fontsize=17)  #
+    plt.ylabel('Scores',fontsize = 14)
+    plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
     st.pyplot(plt)
