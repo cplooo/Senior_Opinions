@@ -1448,8 +1448,8 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
     ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
     # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
     # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
-    matplotlib.rcParams['font.sans-serif'] = ['Arial']
-    matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+    # matplotlib.rcParams['font.sans-serif'] = ['Arial']
+    # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
     # plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
     # plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
     # matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
@@ -1474,7 +1474,7 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
     plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('分數',fontsize = 14)
+    plt.ylabel('Score',fontsize = 14)
     plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
