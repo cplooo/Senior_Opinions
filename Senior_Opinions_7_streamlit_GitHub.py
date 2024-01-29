@@ -861,7 +861,7 @@ for i in range(0, 7, 3):   ## 1, 4, 7
         html_content = html_content.replace('<th>', '<th style="text-align: center;">')
         ## 使用 st.markdown 显示内容
         st.markdown(html_content, unsafe_allow_html=True)
-        st.markdown("###")  ## 更大的间隔
+        st.markdown("##")  ## 更大的间隔
 
 
 
