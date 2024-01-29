@@ -210,20 +210,81 @@ df_streamlit.append(result_df_r)
 
 
 
-
-
-# ###### Part1-7 系對學生在專業領域中具競爭力的培育
+###### Part1-7 系對學生在專業領域中具競爭力的培育
 # df_senior.iloc[:,15] ## 7. 系對學生在專業領域中具競爭力的培育
 
+##### 计算不同子字符串的出现次数
+value_counts = df_senior.iloc[:,15].value_counts()
+
+##### 计算不同子字符串的比例
+proportions = value_counts / value_counts.sum()
+
+##### 轉換成 numpy array
+value_counts_numpy = value_counts.values
+proportions_numpy = proportions.values
+satisfaction_numpy = proportions.index.to_numpy()
 
 
-# ###### Part1-8 系修課規定
+##### 创建一个新的DataFrame来显示结果
+result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
+#### 存到 list 'df_streamlit'
+df_streamlit.append(result_df_r)
+
+
+
+
+
+###### Part1-8 系修課規定
 # df_senior.iloc[:,16] ## 8.系修課規定
 
+##### 计算不同子字符串的出现次数
+value_counts = df_senior.iloc[:,16].value_counts()
+
+##### 计算不同子字符串的比例
+proportions = value_counts / value_counts.sum()
+
+##### 轉換成 numpy array
+value_counts_numpy = value_counts.values
+proportions_numpy = proportions.values
+satisfaction_numpy = proportions.index.to_numpy()
 
 
-# ###### Part1-9 系的學習風氣
+##### 创建一个新的DataFrame来显示结果
+result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
+#### 存到 list 'df_streamlit'
+df_streamlit.append(result_df_r)
+
+
+
+
+
+###### Part1-9 系的學習風氣
 # df_senior.iloc[:,17] ## 9. 系的學習風氣
+
+##### 计算不同子字符串的出现次数
+value_counts = df_senior.iloc[:,17].value_counts()
+
+##### 计算不同子字符串的比例
+proportions = value_counts / value_counts.sum()
+
+##### 轉換成 numpy array
+value_counts_numpy = value_counts.values
+proportions_numpy = proportions.values
+satisfaction_numpy = proportions.index.to_numpy()
+
+
+##### 创建一个新的DataFrame来显示结果
+result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
+#### 調整滿意度次序
+result_df_r = adjust_df(result_df, desired_order)
+#### 存到 list 'df_streamlit'
+df_streamlit.append(result_df_r)
+
+
 
 
 
@@ -763,7 +824,7 @@ df_streamlit.append(result_df_r)
 
 ####### Streamlit 呈現
 # 每行显示3个DataFrame
-for i in range(0, 4, 3):
+for i in range(0, 7, 3):   ## 1, 4, 7
     ## 使用Streamlit的列布局
     col1, col2, col3 = st.columns(3)
     
