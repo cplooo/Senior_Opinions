@@ -1197,7 +1197,7 @@ df_streamlit.append(result_df_r)
 
 ####### Streamlit 呈現
 # 每行显示3个DataFrame
-for i in range(0, 37, 3):   ## 1, 4, 7, 10,13,16,19,22,25,28,31,34,37
+for i in range(0, 40, 3):   ## 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40
     ## 使用Streamlit的列布局
     col1, col2, col3 = st.columns(3)
     
