@@ -95,7 +95,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 for satisfaction in desired_order:
     if satisfaction not in result_df['滿意度'].values:
         # result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-        new_row = pd.DataFrame({'滿意度': satisfaction, '人數': 0, '比例': 0})
+        new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
         result_df = pd.concat([result_df, new_row], ignore_index=True)
 
@@ -141,7 +141,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 for satisfaction in desired_order:
     if satisfaction not in result_df['Satisfaction'].values:
         # result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-        new_row = pd.DataFrame({'滿意度': satisfaction, '人數': 0, '比例': 0})
+        new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
         result_df = pd.concat([result_df, new_row], ignore_index=True)
         
@@ -185,7 +185,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 for satisfaction in desired_order:
     if satisfaction not in result_df['滿意度'].values:
         # result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-        new_row = pd.DataFrame({'滿意度': satisfaction, '人數': 0, '比例': 0})
+        new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
         result_df = pd.concat([result_df, new_row], ignore_index=True)
         
@@ -229,7 +229,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 for satisfaction in desired_order:
     if satisfaction not in result_df['滿意度'].values:
         # result_df_r = result_df_r.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-        new_row = pd.DataFrame({'滿意度': satisfaction, '人數': 0, '比例': 0})
+        new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
         result_df = pd.concat([result_df, new_row], ignore_index=True)
 
@@ -270,7 +270,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 for satisfaction in desired_order:
     if satisfaction not in result_df['滿意度'].values:
         # result_df_r = result_df_r.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-        new_row = pd.DataFrame({'滿意度': satisfaction, '人數': 0, '比例': 0})
+        new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
         result_df = pd.concat([result_df, new_row], ignore_index=True)
 
@@ -312,7 +312,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 for satisfaction in desired_order:
     if satisfaction not in result_df['滿意度'].values:
         # result_df_r = result_df_r.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-        new_row = pd.DataFrame({'滿意度': satisfaction, '人數': 0, '比例': 0})
+        new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
         result_df = pd.concat([result_df, new_row], ignore_index=True)
 
