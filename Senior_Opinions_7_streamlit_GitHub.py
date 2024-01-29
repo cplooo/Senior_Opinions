@@ -1205,7 +1205,7 @@ for i in range(0, 37, 3):   ## 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40
         #st.write("<b>系師資素質與專長:</b>", result_df_rr.to_html(index=False), unsafe_allow_html=True)  ##不显示索引
         ## 创建带有HTML标签的字符串
         # column_title = df_senior.columns[i+0+9][3:]
-        html_content = f"<div style='text-align: center;'><b style='font-size: 15px;'>{column_title[i+0]}</b></div>{df_streamlit[i+0].to_html(index=False)}"
+        html_content = f"<div style='text-align: center;'><b style='font-size: 13px;'>{column_title[i+0]}</b></div>{df_streamlit[i+0].to_html(index=False)}"
         ## 自定义样式，包括表格宽度、字体大小和列名居中
         html_content = html_content.replace('<table border="1" class="dataframe">', 
                                             '<table style="width:105%; font-size: 12px; margin-left: auto; margin-right: auto;" align="center">')
@@ -1216,7 +1216,7 @@ for i in range(0, 37, 3):   ## 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40
         #st.write("<b>系的教學品質:</b>", result_df_rr.to_html(index=False), unsafe_allow_html=True)  ## 不显示索引
         ## 创建带有HTML标签的字符串
         # column_title = df_senior.columns[i+1+9][3:]
-        html_content = f"<div style='text-align: center;'><b style='font-size: 15px;'>{column_title[i+1]}</b></div>{df_streamlit[i+1].to_html(index=False)}"
+        html_content = f"<div style='text-align: center;'><b style='font-size: 13px;'>{column_title[i+1]}</b></div>{df_streamlit[i+1].to_html(index=False)}"
         ## 自定义样式，包括表格宽度、字体大小和列名居中
         html_content = html_content.replace('<table border="1" class="dataframe">', 
                                             '<table style="width:105%; font-size: 12px; margin-left: auto; margin-right: auto;" align="center">')
@@ -1227,7 +1227,7 @@ for i in range(0, 37, 3):   ## 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40
         #st.write("<b>系上師生間的互動關係:</b>", result_df_rr.to_html(index=False), unsafe_allow_html=True)  ## 不显示索引
         ## 创建带有HTML标签的字符串
         # column_title = df_senior.columns[i+2+9][3:]
-        html_content = f"<div style='text-align: center;'><b style='font-size: 15px;'>{column_title[i+2]}</b></div>{df_streamlit[i+2].to_html(index=False)}"
+        html_content = f"<div style='text-align: center;'><b style='font-size: 13px;'>{column_title[i+2]}</b></div>{df_streamlit[i+2].to_html(index=False)}"
         ## 自定义样式，包括表格宽度、字体大小和列名居中
         html_content = html_content.replace('<table border="1" class="dataframe">', 
                                             '<table style="width:105%; font-size: 12px; margin-left: auto; margin-right: auto;" align="center">')
