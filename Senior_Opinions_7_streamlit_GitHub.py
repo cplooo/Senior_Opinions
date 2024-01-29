@@ -1238,7 +1238,7 @@ for i in range(0, 39, 3):   ## end: 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40; s
         st.markdown("##")  ## 更大的间隔
 
 
-html_content = f"<div style='text-align: center;'><b style='font-size: 13px;'>{column_title[36+0]}</b></div>{df_streamlit[36+0].to_html(index=False)}"
+html_content = f"<div style='text-align: center;'><b style='font-size: 13px;'>{column_title[39+0]}</b></div>{df_streamlit[39+0].to_html(index=False)}"
 ## 自定义样式，包括表格宽度、字体大小和列名居中
 html_content = html_content.replace('<table border="1" class="dataframe">', 
                                     '<table style="width:105%; font-size: 12px; margin-left: auto; margin-right: auto;" align="center">')
