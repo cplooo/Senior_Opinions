@@ -1244,6 +1244,7 @@ html_content = html_content.replace('<table border="1" class="dataframe">',
 html_content = html_content.replace('<th>', '<th style="text-align: center;">')
 ## 使用 st.markdown 显示内容
 st.markdown(html_content, unsafe_allow_html=True)
+st.markdown("##")  ## 更大的间隔
 
 
 
@@ -1281,12 +1282,12 @@ sns.boxplot(data=data)
 ### 标示平均值
 for i in range(data.shape[1]):
     y = data.iloc[:, i].mean()
-    plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 14)
+    plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 12)
 # plt.title('畢業系所教學評價盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-plt.title('Boxplot of Teaching Evaluation for Graduation Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 17)
+plt.title('Boxplot of Teaching Evaluation for Graduation Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 15)
 plt.ylim(0, 11)
-plt.ylabel('Scores',fontsize = 16)
-plt.xticks(fontsize=16)  #
+plt.ylabel('Scores',fontsize = 14)
+plt.xticks(fontsize=14)  #
 # plt.show()
 # # 在Streamlit中显示绘图
 st.pyplot(plt)
