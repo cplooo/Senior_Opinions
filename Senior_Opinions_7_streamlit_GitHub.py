@@ -1262,7 +1262,8 @@ df_senior_SomeColumn_numeric = df_senior[df_senior.columns[30]].apply(to_numeric
 ##### 畫盒鬚圖:
 #### 将这些 Series 合并为一个 DataFrame
 # data = pd.DataFrame({'學系': df_senior_SomeColumn_numeric})  
-data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+# data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
 #### 绘制盒须图
 ### 設置中文顯示
 ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
@@ -1281,9 +1282,10 @@ sns.boxplot(data=data)
 for i in range(data.shape[1]):
     y = data.iloc[:, i].mean()
     plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 14)
-plt.title('畢業系所教學評價盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
+# plt.title('畢業系所教學評價盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
+plt.title('Boxplot of Teaching Evaluation for Graduation Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 17)
 plt.ylim(0, 11)
-plt.ylabel('分數',fontsize = 16)
+plt.ylabel('Scores',fontsize = 16)
 plt.xticks(fontsize=16)  #
 # plt.show()
 # # 在Streamlit中显示绘图
@@ -1302,7 +1304,8 @@ def to_numeric_ignore_special_str(column):
 df_senior_SomeColumn_numeric = df_senior[df_senior.columns[31]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
 ##### 畫盒鬚圖:
 #### 将这些 Series 合并为一个 DataFrame
-data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+# data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
 #### 绘制盒须图
 ### 設置中文顯示
 ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
@@ -1321,9 +1324,10 @@ sns.boxplot(data=data)
 for i in range(data.shape[1]):
     y = data.iloc[:, i].mean()
     plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 14)
-plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
+# plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
+plt.title('Boxplot of Competitive Strength of Graduation Departments Compared to Other Similar Domestic Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 17)
 plt.ylim(0, 11)
-plt.ylabel('分數',fontsize = 16)
+plt.ylabel('Scores',fontsize = 16)
 plt.xticks(fontsize=16)  #
 # plt.show()
 # # 在Streamlit中显示绘图
