@@ -139,7 +139,7 @@ result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts
 #### 調整滿意度次序
 # result_df_r = adjust_df(result_df, desired_order)
 for satisfaction in desired_order:
-    if satisfaction not in result_df['Satisfaction'].values:
+    if satisfaction not in result_df['滿意度'].values:
         # result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
         new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
