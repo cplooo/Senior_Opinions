@@ -391,10 +391,10 @@ st.write("系師資素質與專長:", result_df_r.to_html(index=False), unsafe_a
 
 
 ###### Part1-2 系的教學品質
-df_senior.iloc[:,11] ## 2. 系的教學品質
+# df_senior.iloc[:,10] ## 2. 系的教學品質
 #df_senior_理.iloc[:,9]
 ##### 计算不同子字符串的出现次数
-value_counts = df_senior.iloc[:,11].value_counts()
+value_counts = df_senior.iloc[:,10].value_counts()
 # value_counts_理學 = df_senior_理學.iloc[:,11].value_counts()
 # value_counts_資訊 = df_senior_資訊.iloc[:,10].value_counts()
 # value_counts_管理 = df_senior_管理.iloc[:,10].value_counts()
