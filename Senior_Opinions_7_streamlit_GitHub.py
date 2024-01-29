@@ -718,7 +718,6 @@ column_title.append(df_senior.columns[40][3:])
 
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,40].value_counts()
-column_title.append(df_senior.columns[40][3:])
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
@@ -787,7 +786,7 @@ df_streamlit.append(result_df_r)
 
 
 
-###### Part6-3 您是否申請或參與過「職涯輔導」 學習輔導方案或輔導活動嗎?
+###### Part6-3 學校各項收費
 # df_senior.iloc[:,44] ## 3. 學校各項收費
 column_title.append(df_senior.columns[44][3:])
 
