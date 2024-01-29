@@ -1197,7 +1197,8 @@ df_streamlit.append(result_df_r)
 
 ####### Streamlit 呈現
 # 每行显示3个DataFrame
-for i in range(0, 37, 3):   ## 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40
+for i in range(0, 36, 3):   ## end: 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40; start: 0,3,6,9,12,15,18,21,24,27,30,33,36
+    
     ## 使用Streamlit的列布局
     col1, col2, col3 = st.columns(3)
     
@@ -1237,5 +1238,12 @@ for i in range(0, 37, 3):   ## 1, 4, 7, 10,13,16,19,22,25,28,31,34,37,40
         st.markdown("##")  ## 更大的间隔
 
 
+html_content = f"<div style='text-align: center;'><b style='font-size: 13px;'>{column_title[36+0]}</b></div>{df_streamlit[36+0].to_html(index=False)}"
+## 自定义样式，包括表格宽度、字体大小和列名居中
+html_content = html_content.replace('<table border="1" class="dataframe">', 
+                                    '<table style="width:105%; font-size: 12px; margin-left: auto; margin-right: auto;" align="center">')
+html_content = html_content.replace('<th>', '<th style="text-align: center;">')
+## 使用 st.markdown 显示内容
+st.markdown(html_content, unsafe_allow_html=True)
 
 
