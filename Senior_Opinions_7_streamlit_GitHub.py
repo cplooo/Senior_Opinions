@@ -42,7 +42,6 @@ df_senior = df_senior_original[df_senior_original['畢業院系']==department_ch
 ####### 調整滿意度次序
 ###### 定义期望的滿意度顺序
 desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿意']
-
 ###### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
 def adjust_df(df, order):
     # 确保 DataFrame 包含所有滿意度值
@@ -67,260 +66,147 @@ df_streamlit = []
 #df_senior.iloc[:,9] ## 1. 系師資素質與專長
 #df_senior.columns[9][3:]  ## '系師資素質與專長'
 #type(df_senior.iloc[:,9])  ## pandas.core.series.Series
+
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,9].value_counts()  
 #type(value_counts) ## pandas.core.series.Series
 
-
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
 
-
+##### 轉換成 numpy array
 value_counts_numpy = value_counts.values
 proportions_numpy = proportions.values
 satisfaction_numpy = proportions.index.to_numpy()
 
-
-
 ##### 创建一个新的DataFrame来显示结果
 result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
-# result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
-# #### 將 index 變column
-# result_df_r = result_df.reset_index()
-# #### 將新的 column 重新命名
-# result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-
 #### 調整滿意度次序
 result_df_r = adjust_df(result_df, desired_order)
-# for satisfaction in desired_order:
-#     if satisfaction not in result_df['滿意度'].values:
-#         # result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-#         new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
-#         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
-#         result_df = pd.concat([result_df, new_row], ignore_index=True)
-
-# ## 根据期望的顺序重新排列 DataFrame
-# result_df_r = result_df.set_index('滿意度').reindex(desired_order).reset_index()
-
-# df_streamlit.append(result_df_rr)  
+#### 存到 list 'df_streamlit'
 df_streamlit.append(result_df_r)  
-#### 使用Streamlit展示DataFrame
-# st.write("系師資素質與專長:", result_df_rr)  ##显示索引
-# st.write("<b>系師資素質與專長:</b>", result_df_rr.to_html(index=False), unsafe_allow_html=True)  ##不显示索引
-# st.write("")  ## 一个空白行
-# st.markdown("###")  ## 更大的间隔
+
+
 
 ###### Part1-2 系的教學品質
 #df_senior.iloc[:,10] ## 2. 系的教學品質
 #df_senior.columns[10][3:]  ## '系的教學品質'
+
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,10].value_counts()
-
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
 
-
+##### 轉換成 numpy array
 value_counts_numpy = value_counts.values
 proportions_numpy = proportions.values
 satisfaction_numpy = proportions.index.to_numpy()
 
-
-
-
 ##### 创建一个新的DataFrame来显示结果
 result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
-# result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
-# #### 將 index 變column
-# result_df_r = result_df.reset_index()
-# #### 將新的 column 重新命名
-# result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-
 #### 調整滿意度次序
 result_df_r = adjust_df(result_df, desired_order)
-# for satisfaction in desired_order:
-#     if satisfaction not in result_df['滿意度'].values:
-#         # result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-#         new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
-#         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
-#         result_df = pd.concat([result_df, new_row], ignore_index=True)
-        
-# ## 根据期望的顺序重新排列 DataFrame
-# result_df_r = result_df.set_index('滿意度').reindex(desired_order).reset_index()
-
+#### 存到 list 'df_streamlit'
 df_streamlit.append(result_df_r)
-# df_streamlit.append(result_df_rr)
-#### 使用Streamlit展示DataFrame
-# st.write("系師資素質與專長:", result_df_rr)  ## 显示索引
-# st.write("<b>系的教學品質:</b>", result_df_rr.to_html(index=False), unsafe_allow_html=True)  ## 不显示索引
-# st.write("")  ## 一个空白行
+
+
 
 ###### Part1-3 系上師生間的互動關係
 # df_senior.iloc[:,11] ## 3. 系上師生間的互動關係
 #df_senior.columns[11][3:]  ## '系上師生間的互動關係'
+
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,11].value_counts()
-## 更改 Series 的名称
-value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
 
-
+##### 轉換成 numpy array
 value_counts_numpy = value_counts.values
 proportions_numpy = proportions.values
 satisfaction_numpy = proportions.index.to_numpy()
 
-
 ##### 创建一个新的DataFrame来显示结果
 result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
-# result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
-# #### 將 index 變column
-# result_df_r = result_df.reset_index()
-# #### 將新的 column 重新命名
-# result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-
 #### 調整滿意度次序
 result_df_r = adjust_df(result_df, desired_order)
-# for satisfaction in desired_order:
-#     if satisfaction not in result_df['滿意度'].values:
-#         # result_df_r = result_df_r.append({'Satisfaction': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-#         new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
-#         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
-#         result_df = pd.concat([result_df, new_row], ignore_index=True)
-        
-# ## 根据期望的顺序重新排列 DataFrame
-# result_df_r = result_df.set_index('滿意度').reindex(desired_order).reset_index()
-
+#### 存到 list 'df_streamlit'
 df_streamlit.append(result_df_r)
-# df_streamlit.append(result_df_rr)
-#### 使用Streamlit展示DataFrame
-# st.write("系師資素質與專長:", result_df_rr)  ## 显示索引
-# st.write("<b>系上師生間的互動關係:</b>", result_df_rr.to_html(index=False), unsafe_allow_html=True)  ## 不显示索引
-# st.write("")  ## 一个空白行
+
+
 
 
 ###### Part1-4 系課程內容
 # df_senior.iloc[:,12] ## 4. 系課程內容
+
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,12].value_counts()
-## 更改 Series 的名称
-value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
 
-
+##### 轉換成 numpy array
 value_counts_numpy = value_counts.values
 proportions_numpy = proportions.values
 satisfaction_numpy = proportions.index.to_numpy()
 
-
 ##### 创建一个新的DataFrame来显示结果
 result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
-# result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
-# #### 將 index 變column
-# result_df_r = result_df.reset_index()
-# #### 將新的 column 重新命名
-# result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-
 #### 調整滿意度次序
 result_df_r = adjust_df(result_df, desired_order)
-# for satisfaction in desired_order:
-#     if satisfaction not in result_df['滿意度'].values:
-#         # result_df_r = result_df_r.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-#         new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
-#         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
-#         result_df = pd.concat([result_df, new_row], ignore_index=True)
-
-# ## 根据期望的顺序重新排列 DataFrame
-# result_df_r = result_df.set_index('滿意度').reindex(desired_order).reset_index()
-
+#### 存到 list 'df_streamlit'
 df_streamlit.append(result_df_r)
-# df_streamlit.append(result_df_rr)
+
+
 
 
 ###### Part1-5 系對學生思辨與探究能力的培養
 # df_senior.iloc[:,13] ## 5. 系對學生思辨與探究能力的培養
+
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,13].value_counts()
-## 更改 Series 的名称
-value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
 
-
+##### 轉換成 numpy array
 value_counts_numpy = value_counts.values
 proportions_numpy = proportions.values
 satisfaction_numpy = proportions.index.to_numpy()
 
-
-
 ##### 创建一个新的DataFrame来显示结果
 result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
-# result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
-# #### 將 index 變column
-# result_df_r = result_df.reset_index()
-# #### 將新的 column 重新命名
-# result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-
 #### 調整滿意度次序
 result_df_r = adjust_df(result_df, desired_order)
-# for satisfaction in desired_order:
-#     if satisfaction not in result_df['滿意度'].values:
-#         # result_df_r = result_df_r.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-#         new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
-#         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
-#         result_df = pd.concat([result_df, new_row], ignore_index=True)
-
-# ## 根据期望的顺序重新排列 DataFrame
-# result_df_r = result_df.set_index('滿意度').reindex(desired_order).reset_index()
-
+#### 存到 list 'df_streamlit'
 df_streamlit.append(result_df_r)
-# df_streamlit.append(result_df_rr)
+
 
 
 
 ###### Part1-6 系對學生創新或創造力的培養
 # df_senior.iloc[:,14] ## 6. 系對學生創新或創造力的培養
+
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,14].value_counts()
-## 更改 Series 的名称
-value_counts.name = '滿意度'
 
 ##### 计算不同子字符串的比例
 proportions = value_counts / value_counts.sum()
 
-
+##### 轉換成 numpy array
 value_counts_numpy = value_counts.values
 proportions_numpy = proportions.values
 satisfaction_numpy = proportions.index.to_numpy()
 
 
-
 ##### 创建一个新的DataFrame来显示结果
 result_df = pd.DataFrame({'滿意度':satisfaction_numpy, '人數': value_counts_numpy,'比例': proportions_numpy.round(4)})
-# result_df = pd.DataFrame({'人數': value_counts,'比例': proportions.round(4)})
-# #### 將 index 變column
-# result_df_r = result_df.reset_index()
-# #### 將新的 column 重新命名
-# result_df_rr = result_df_r.rename(columns={'index': '滿意度'})
-
 #### 調整滿意度次序
 result_df_r = adjust_df(result_df, desired_order)
-# for satisfaction in desired_order:
-#     if satisfaction not in result_df['滿意度'].values:
-#         # result_df_r = result_df_r.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
-#         new_row = pd.DataFrame({'滿意度': [satisfaction], '人數': [0], '比例': [0]})
-#         # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
-#         result_df = pd.concat([result_df, new_row], ignore_index=True)
-
-# ## 根据期望的顺序重新排列 DataFrame
-# result_df_r = result_df.set_index('滿意度').reindex(desired_order).reset_index()
-
+#### 存到 list 'df_streamlit'
 df_streamlit.append(result_df_r)
-# df_streamlit.append(result_df_rr)
+
 
 
 
