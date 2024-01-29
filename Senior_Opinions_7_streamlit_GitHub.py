@@ -48,7 +48,11 @@ def adjust_df(df, order):
     # 确保 DataFrame 包含所有滿意度值
     for pp in order:
         if pp not in df['滿意度'].values:
-            df = df.append({'滿意度': pp, '人數': 0, '比例': 0}, ignore_index=True)
+            # df = df.append({'滿意度': pp, '人數': 0, '比例': 0}, ignore_index=True)
+            # 创建一个新的 DataFrame，用于添加新的row
+            new_row = pd.DataFrame({'滿意度': pp, '人數': 0, '比例': 0})
+            # 使用 concat() 合并原始 DataFrame 和新的 DataFrame
+            df = pd.concat([df, new_row], ignore_index=True)
 
     # 根据期望的顺序重新排列 DataFrame
     df = df.set_index('滿意度').reindex(order).reset_index()
