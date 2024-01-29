@@ -6,7 +6,7 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import matplotlib
-import seaborn as sns
+#import seaborn as sns
 import numpy as np
 import re
 import streamlit as st 
@@ -120,11 +120,16 @@ import streamlit.components.v1 as stc
 # ###### 将 DataFrame 保存为 Excel 文件
 # #df_senior.to_excel('df_senior.xlsx', index=False)
 
-#######  读取Pickle文件
-df_senior_original = pd.read_pickle('df_senior.pkl')
-#df_senior_original.shape  ## (1942, 70)
-#df_senior_original.head()
-#print(df_senior_original)
+# #######  读取Pickle文件
+# df_senior_original = pd.read_pickle('df_senior.pkl')
+# #df_senior_original.shape  ## (1942, 70)
+# #df_senior_original.head()
+# #print(df_senior_original)
+
+
+####### 读取Excel文件
+df_senior_original = pd.read_excel('df_senior.xlsx')
+
 
 # #%% (一) 以下
 # ####### 計算各 "畢業院系" 填答人數:
