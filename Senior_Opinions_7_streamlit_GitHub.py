@@ -13,14 +13,14 @@ import streamlit as st
 import streamlit.components.v1 as stc 
 
 
-# #######  读取Pickle文件
-# df_senior_original = pd.read_pickle('df_senior.pkl')
-# #df_senior_original.shape  ## (1942, 70)
-# #df_senior_original.head()
-# #print(df_senior_original)
+#######  读取Pickle文件
+df_senior_original = pd.read_pickle('df_senior.pkl')
+#df_senior_original.shape  ## (1942, 70)
+#df_senior_original.head()
+#print(df_senior_original)
 
-####### 读取Excel文件
-df_senior_original = pd.read_excel('df_senior.xlsx')
+# ####### 读取Excel文件
+# df_senior_original = pd.read_excel('df_senior.xlsx')
 
 
 
