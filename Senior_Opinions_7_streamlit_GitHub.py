@@ -810,7 +810,7 @@ df_streamlit.append(result_df_r)
 
 
 
-###### Part6-4 您是否申請或參與過「外語教學中心學習輔導」 學習輔導方案或輔導活動嗎?
+###### Part6-4 電腦網路設備
 # df_senior.iloc[:,45] ## 4. 電腦網路設備
 column_title.append(df_senior.columns[45][3:])
 
@@ -834,7 +834,7 @@ df_streamlit.append(result_df_r)
 
 
 
-###### Part6-5 您是否申請或參與過「諮商暨健康中心的諮商輔導」 學習輔導方案或輔導活動嗎?
+###### Part6-5 運動休閒設施
 # df_senior.iloc[:,46] ## 5. 運動休閒設施
 column_title.append(df_senior.columns[46][3:])
 
