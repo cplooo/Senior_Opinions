@@ -1324,8 +1324,8 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
     # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
     # plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
     # plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
-    matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
-    matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+    # matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+    # matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
     
     
     plt.figure(figsize=(10, 6))
@@ -1342,6 +1342,101 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
     # plt.show()
     # # 在Streamlit中显示绘图
     st.pyplot(plt)
+    
+    st.markdown("##")  ## 更大的间隔
+    
+    
+with st.expander("繪圖: 整體而言，您對畢業母校在辦理教學上的評價如何？"):
+    ###### Part8-4 整體而言，您對畢業母校在辦理教學上的評價如何？
+    # df_senior.iloc[:,58] ## 4. 整體而言，您對畢業母校在辦理教學上的評價如何？
+    ##### 轉變資料型態為float:
+    # #### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
+    # def to_numeric_ignore_special_str(column):
+    #     return pd.to_numeric(column, errors='coerce')
+    #### 将某行转换为数值类型float，忽略无法转换的值
+    df_senior_SomeColumn_numeric = df_senior[df_senior.columns[58]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
+    ##### 畫盒鬚圖:
+    #### 将这些 Series 合并为一个 DataFrame
+    # data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
+    #### 绘制盒须图
+    ### 設置中文顯示
+    ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
+    # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
+    # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+    # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+    # plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
+    # plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+    # matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+    # matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+    
+    
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=data)
+    ### 标示平均值
+    for i in range(data.shape[1]):
+        y = data.iloc[:, i].mean()
+        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+    # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
+    plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
+    plt.ylim(0, 11)
+    plt.ylabel('Scores',fontsize = 17)
+    plt.xticks(fontsize=17)  #
+    # plt.show()
+    # # 在Streamlit中显示绘图
+    st.pyplot(plt)
+    
+    st.markdown("##")  ## 更大的间隔
 
+
+
+
+
+
+
+
+
+
+with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競爭力如何？"):
+    ###### Part8-5 和國內其他大學相較，您覺得畢業母校競爭力如何？
+    # df_senior.iloc[:,59] ## 5. 和國內其他大學相較，您覺得畢業母校競爭力如何？
+    ##### 轉變資料型態為float:
+    # #### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
+    # def to_numeric_ignore_special_str(column):
+    #     return pd.to_numeric(column, errors='coerce')
+    #### 将某行转换为数值类型float，忽略无法转换的值
+    df_senior_SomeColumn_numeric = df_senior[df_senior.columns[59]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
+    ##### 畫盒鬚圖:
+    #### 将这些 Series 合并为一个 DataFrame
+    # data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
+    #### 绘制盒须图
+    ### 設置中文顯示
+    ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
+    # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
+    # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+    # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+    # plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
+    # plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+    # matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+    # matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+    
+    
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=data)
+    ### 标示平均值
+    for i in range(data.shape[1]):
+        y = data.iloc[:, i].mean()
+        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
+    # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
+    plt.title('Boxplot: Range 1-10, Number Represents Average Value',fontsize = 18)
+    plt.ylim(0, 11)
+    plt.ylabel('Scores',fontsize = 17)
+    plt.xticks(fontsize=17)  #
+    # plt.show()
+    # # 在Streamlit中显示绘图
+    st.pyplot(plt)
+    
+    st.markdown("##")  ## 更大的间隔
 
 
