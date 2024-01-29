@@ -1269,8 +1269,11 @@ data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
 # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
 # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
 # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
-plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
-plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+# plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
+# plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
 
 plt.figure(figsize=(10, 6))
 sns.boxplot(data=data)
@@ -1306,8 +1309,11 @@ data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
 # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
 # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
 # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
-plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
-plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+# plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 例如使用微软雅黑
+# plt.rcParams['axes.unicode_minus'] = False  # 解决负号无法显示的问题
+matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
 
 plt.figure(figsize=(10, 6))
 sns.boxplot(data=data)
