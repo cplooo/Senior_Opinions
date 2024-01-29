@@ -1291,8 +1291,8 @@ with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的
         y = data.iloc[:, i].mean()
         plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 12)
     # plt.title('畢業系所教學評價盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    # plt.title('Boxplot of Teaching Evaluation for Graduation Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 15)
-    plt.title('Boxplot: Range 1-10, Numbers Represent Average Values',fontsize = 15)
+    plt.title('Boxplot of Teaching Evaluation for Graduation Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 15)
+    # plt.title('Boxplot: Range 1-10, Numbers Represent Average Values',fontsize = 15)
     plt.ylim(0, 11)
     plt.ylabel('Scores',fontsize = 14)
     plt.xticks(fontsize=14)  #
@@ -1335,8 +1335,8 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
         y = data.iloc[:, i].mean()
         plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 15)
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    # plt.title('Boxplot of Competitive Strength of Graduation Departments Compared to Other Similar Domestic Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 18)
-    plt.title('Boxplot: Range 1-10, Numbers Represent Average Values',fontsize = 18)
+    plt.title('Boxplot of Competitive Strength of Graduation Departments Compared to Other Similar Domestic Departments (Range 1-10, Numbers Represent Average Values)',fontsize = 18)
+    # plt.title('Boxplot: Range 1-10, Numbers Represent Average Values',fontsize = 18)
     plt.ylim(0, 11)
     plt.ylabel('Scores',fontsize = 17)
     plt.xticks(fontsize=17)  #
