@@ -246,34 +246,35 @@ result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # result_df_國際_r.rename(columns={'index': '滿意度'}, inplace=True)
 
 
-#### 調整滿意度次序
-###定义期望的滿意度顺序
-desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿意']
-### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
-def adjust_df(df, order):
-    # 确保 DataFrame 包含所有滿意度值
-    for satisfaction in order:
-        if satisfaction not in df['滿意度'].values:
-            df = df.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
+# #### 調整滿意度次序
+# ###定义期望的滿意度顺序
+# desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿意']
+# ### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
+# def adjust_df(df, order):
+#     # 确保 DataFrame 包含所有滿意度值
+#     for satisfaction in order:
+#         if satisfaction not in df['滿意度'].values:
+#             df = df.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 
-    # 根据期望的顺序重新排列 DataFrame
-    df = df.set_index('滿意度').reindex(order).reset_index()
-    return df
-### 调整两个 DataFrame
-result_df_rr = adjust_df(result_df_r, desired_order)
-#type(result_df_rr)
-# result_df_理學_rr = adjust_df(result_df_理學_r, desired_order)
-# result_df_資訊_rr = adjust_df(result_df_資訊_r, desired_order)
-# result_df_管理_rr = adjust_df(result_df_管理_r, desired_order)
-# result_df_人社_rr = adjust_df(result_df_人社_r, desired_order)
-# result_df_外語_rr = adjust_df(result_df_外語_r, desired_order)
-# result_df_國際_rr = adjust_df(result_df_國際_r, desired_order)
+#     # 根据期望的顺序重新排列 DataFrame
+#     df = df.set_index('滿意度').reindex(order).reset_index()
+#     return df
+# ### 调整两个 DataFrame
+# result_df_rr = adjust_df(result_df_r, desired_order)
+# #type(result_df_rr)
+# # result_df_理學_rr = adjust_df(result_df_理學_r, desired_order)
+# # result_df_資訊_rr = adjust_df(result_df_資訊_r, desired_order)
+# # result_df_管理_rr = adjust_df(result_df_管理_r, desired_order)
+# # result_df_人社_rr = adjust_df(result_df_人社_r, desired_order)
+# # result_df_外語_rr = adjust_df(result_df_外語_r, desired_order)
+# # result_df_國際_rr = adjust_df(result_df_國際_r, desired_order)
 
 
 # #### 使用Streamlit展示DataFrame
 # st.write("系師資素質與專長:", result_df_rr)
 #### 使用Streamlit展示DataFrame，但不显示索引
-st.write("系師資素質與專長:", result_df_rr.to_html(index=False), unsafe_allow_html=True)
+# st.write("系師資素質與專長:", result_df_rr.to_html(index=False), unsafe_allow_html=True)
+st.write("系師資素質與專長:", result_df_r.to_html(index=False), unsafe_allow_html=True)
 
 
 # #### 將各院 DataFrame合并为一个DataFrame
@@ -437,33 +438,34 @@ result_df_r.rename(columns={'index': '滿意度'}, inplace=True)
 # result_df_外語_r.rename(columns={'index': '滿意度'}, inplace=True)
 # result_df_國際_r.rename(columns={'index': '滿意度'}, inplace=True)
 
-#### 調整滿意度次序
-###定义期望的滿意度顺序
-desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿意']
-### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
-def adjust_df(df, order):
-    # 确保 DataFrame 包含所有滿意度值
-    for satisfaction in order:
-        if satisfaction not in df['滿意度'].values:
-            df = df.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
+# #### 調整滿意度次序
+# ###定义期望的滿意度顺序
+# desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿意']
+# ### 函数：调整 DataFrame 以包含所有滿意度值，且顺序正确
+# def adjust_df(df, order):
+#     # 确保 DataFrame 包含所有滿意度值
+#     for satisfaction in order:
+#         if satisfaction not in df['滿意度'].values:
+#             df = df.append({'滿意度': satisfaction, '人數': 0, '比例': 0}, ignore_index=True)
 
-    # 根据期望的顺序重新排列 DataFrame
-    df = df.set_index('滿意度').reindex(order).reset_index()
-    return df
-### 调整两个 DataFrame
-result_df_rr = adjust_df(result_df_r, desired_order)
-# result_df_理學_rr = adjust_df(result_df_理學_r, desired_order)
-# result_df_資訊_rr = adjust_df(result_df_資訊_r, desired_order)
-# result_df_管理_rr = adjust_df(result_df_管理_r, desired_order)
-# result_df_人社_rr = adjust_df(result_df_人社_r, desired_order)
-# result_df_外語_rr = adjust_df(result_df_外語_r, desired_order)
-# result_df_國際_rr = adjust_df(result_df_國際_r, desired_order)
+#     # 根据期望的顺序重新排列 DataFrame
+#     df = df.set_index('滿意度').reindex(order).reset_index()
+#     return df
+# ### 调整两个 DataFrame
+# result_df_rr = adjust_df(result_df_r, desired_order)
+# # result_df_理學_rr = adjust_df(result_df_理學_r, desired_order)
+# # result_df_資訊_rr = adjust_df(result_df_資訊_r, desired_order)
+# # result_df_管理_rr = adjust_df(result_df_管理_r, desired_order)
+# # result_df_人社_rr = adjust_df(result_df_人社_r, desired_order)
+# # result_df_外語_rr = adjust_df(result_df_外語_r, desired_order)
+# # result_df_國際_rr = adjust_df(result_df_國際_r, desired_order)
 
 
 # #### 使用Streamlit展示DataFrame
 # st.write("系師資素質與專長:", result_df_rr)
 #### 使用Streamlit展示DataFrame，但不显示索引
-st.write("系的教學品質:", result_df_rr.to_html(index=False), unsafe_allow_html=True)
+# st.write("系的教學品質:", result_df_rr.to_html(index=False), unsafe_allow_html=True)
+st.write("系的教學品質:", result_df_r.to_html(index=False), unsafe_allow_html=True)
 
 
 
