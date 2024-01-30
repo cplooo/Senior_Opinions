@@ -32,11 +32,18 @@ html_temp = """
 		"""
 stc.html(html_temp)
 
+# st.subheader("挑選特定個人的 UCAN 資料並比較系院校平均值")
+院_系 = st.text_input('以學系查詢請輸入 0, 以學院查詢請輸入 1 : ')
 
-####### 選擇學系
-department_choice = st.selectbox('選擇學系', df_senior_original['畢業院系'].unique())
-#department_choice = '國企系'
-df_senior = df_senior_original[df_senior_original['畢業院系']==department_choice]
+####### 選擇院系
+if 院_系 == 0:
+    choice = st.selectbox('選擇學系', df_senior_original['畢業院系'].unique())
+    #choice = '國企系'
+    df_senior = df_senior_original[df_senior_original['畢業院系']==choice]
+if 院_系 == 1:
+    choice = st.selectbox('選擇學院', df_senior_original['學院別'].unique())
+    #choice = '管理'
+    df_senior = df_senior_original[df_senior_original['學院別']==choice]
 
 
 ####### 調整滿意度次序
@@ -1271,7 +1278,7 @@ with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
     # data = pd.DataFrame({'學系': df_senior_SomeColumn_numeric})  
-    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({choice: df_senior_SomeColumn_numeric})
     # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
@@ -1324,7 +1331,7 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
     df_senior_SomeColumn_numeric = df_senior[df_senior.columns[31]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
-    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({choice: df_senior_SomeColumn_numeric})
     # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
@@ -1379,7 +1386,7 @@ with st.expander("繪圖: 整體而言，您對畢業母校在辦理教學上的
     df_senior_SomeColumn_numeric = df_senior[df_senior.columns[58]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
-    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({choice: df_senior_SomeColumn_numeric})
     # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
@@ -1441,7 +1448,7 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
     df_senior_SomeColumn_numeric = df_senior[df_senior.columns[59]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
-    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({choice: df_senior_SomeColumn_numeric})
     # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
