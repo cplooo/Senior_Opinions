@@ -1301,10 +1301,10 @@ with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的
         plt.text(i, Q3, f'{Q3:.2f}', horizontalalignment='center', color='red', fontsize=12)
 
 
-    # plt.title('畢業系所教學評價盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
+    plt.title('盒鬚圖: 分數範圍 1-10. 呈現數字: 第1四分位數,平均值,第3四分位數',fontsize = 15)
+    # plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('Scores',fontsize = 14)
+    plt.ylabel('分數',fontsize = 14)
     plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
@@ -1356,10 +1356,10 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
 
 
 
-    # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
+    plt.title('盒鬚圖: 分數範圍 1-10. 呈現數字: 第1四分位數,平均值,第3四分位數',fontsize = 15)
+    # plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('Scores',fontsize = 14)
+    plt.ylabel('分數',fontsize = 14)
     plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
@@ -1410,10 +1410,10 @@ with st.expander("繪圖: 整體而言，您對畢業母校在辦理教學上的
 
 
 
-    # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
+    plt.title('盒鬚圖: 分數範圍 1-10. 呈現數字: 第1四分位數,平均值,第3四分位數',fontsize = 15)
+    # plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
     plt.ylim(0, 11)
-    plt.ylabel('Scores',fontsize = 14)
+    plt.ylabel('分數',fontsize = 14)
     plt.xticks(fontsize=14)  #
     # plt.show()
     # # 在Streamlit中显示绘图
@@ -1472,7 +1472,7 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
         plt.text(i, Q3, f'{Q3:.2f}', horizontalalignment='center', color='red', fontsize=12)
 
     # plt.title('畢業系所對比國內其他類似系所之競爭力盒鬚圖(範圍1-10, 數字為平均值)',fontsize = 17)
-    plt.title('Boxplot: Range 1-10, Numbers: First Quartile,Mean,Third Quartile',fontsize = 15)
+    plt.title('盒鬚圖: 分數範圍 1-10. 呈現數字: 第1四分位數,平均值,第3四分位數',fontsize = 15)
     plt.ylim(0, 11)
     plt.ylabel('分數',fontsize = 14)
     plt.xticks(fontsize=14)  #
