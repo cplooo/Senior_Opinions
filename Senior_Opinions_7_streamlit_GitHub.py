@@ -1271,8 +1271,8 @@ with st.expander("繪圖: 整體而言，您對畢業系所在辦理教學上的
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
     # data = pd.DataFrame({'學系': df_senior_SomeColumn_numeric})  
-    # data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
-    data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
     ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
@@ -1324,8 +1324,8 @@ with st.expander("繪圖: 和國內其他類似系所相較，您覺得畢業的
     df_senior_SomeColumn_numeric = df_senior[df_senior.columns[31]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
-    # data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
-    data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
     ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
@@ -1379,8 +1379,8 @@ with st.expander("繪圖: 整體而言，您對畢業母校在辦理教學上的
     df_senior_SomeColumn_numeric = df_senior[df_senior.columns[58]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
-    # data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
-    data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
     ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
@@ -1441,8 +1441,8 @@ with st.expander("繪圖: 和國內其他大學相較，您覺得畢業母校競
     df_senior_SomeColumn_numeric = df_senior[df_senior.columns[59]].apply(to_numeric_ignore_special_str)  ## type(df_senior_Part3_4_numeric)  ## pandas.core.series.Series
     ##### 畫盒鬚圖:
     #### 将这些 Series 合并为一个 DataFrame
-    # data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
-    data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
+    data = pd.DataFrame({department_choice: df_senior_SomeColumn_numeric})
+    # data = pd.DataFrame({'Department': df_senior_SomeColumn_numeric})
     #### 绘制盒须图
     ### 設置中文顯示
     ## 設置 matplotlib 支持中文的字體: 這裡使用的是 'SimHei' 字體，您也可以替換為任何支持中文的字體
