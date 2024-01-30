@@ -108,7 +108,7 @@ column_title = []
 ###### Part1-1 系師資素質與專長
 #df_senior.iloc[:,9] ## 1. 系師資素質與專長
 #df_senior.columns[9][3:]  ## '系師資素質與專長'
-if df_senior:
+if df_senior.any():
     column_title.append(df_senior.columns[9][3:])
     #type(df_senior.iloc[:,9])  ## pandas.core.series.Series
 
