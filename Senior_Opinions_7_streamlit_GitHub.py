@@ -12,7 +12,8 @@ import re
 import streamlit as st 
 import streamlit.components.v1 as stc 
 
-
+# 初始化一个空的DataFrame
+df_senior = pd.DataFrame()
 #######  读取Pickle文件
 df_senior_original = pd.read_pickle('df_senior.pkl')
 #df_senior_original.shape  ## (1942, 70)
