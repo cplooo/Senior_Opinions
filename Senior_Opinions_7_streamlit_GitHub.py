@@ -51,6 +51,9 @@ if 院_系:
             df_senior = df_senior_original[df_senior_original['學院別']==choice]
 
 
+
+
+
 ####### 調整滿意度次序
 ###### 定义期望的滿意度顺序
 desired_order = ['非常滿意', '滿意', '普通', '不滿意', '非常不滿意']
