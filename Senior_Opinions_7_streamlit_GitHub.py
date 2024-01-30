@@ -32,18 +32,21 @@ html_temp = """
 		"""
 stc.html(html_temp)
 
-# st.subheader("挑選特定個人的 UCAN 資料並比較系院校平均值")
-院_系 = st.text_input('以學系查詢請輸入 0, 以學院查詢請輸入 1 : ')
 
 ####### 選擇院系
-if 院_系 == '0':
-    choice = st.selectbox('選擇學系', df_senior_original['畢業院系'].unique())
-    #choice = '國企系'
-    df_senior = df_senior_original[df_senior_original['畢業院系']==choice]
-if 院_系 == '1':
-    choice = st.selectbox('選擇學院', df_senior_original['學院別'].unique())
-    #choice = '管理'
-    df_senior = df_senior_original[df_senior_original['學院別']==choice]
+院_系 = st.text_input('以學系查詢請輸入 0, 以學院查詢請輸入 1 : ')
+
+if 院_系: 
+    if 院_系 == '0':
+        choice = st.selectbox('選擇學系', df_senior_original['畢業院系'].unique())
+        #choice = '國企系'
+        if choice:
+            df_senior = df_senior_original[df_senior_original['畢業院系']==choice]
+    if 院_系 == '1':
+        choice = st.selectbox('選擇學院', df_senior_original['學院別'].unique())
+        #choice = '管理'
+        if choice:
+            df_senior = df_senior_original[df_senior_original['學院別']==choice]
 
 
 ####### 調整滿意度次序
