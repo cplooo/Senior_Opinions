@@ -34,7 +34,7 @@ stc.html(html_temp)
 
 
 
-df_senior = pd.DataFrame()
+# df_senior = pd.DataFrame()
 ####### 選擇院系
 院_系 = st.text_input('以學系查詢請輸入 0, 以學院查詢請輸入 1 : ')
 
