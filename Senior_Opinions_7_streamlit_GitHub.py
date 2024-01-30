@@ -33,8 +33,6 @@ html_temp = """
 stc.html(html_temp)
 
 
-
-df_senior = pd.DataFrame()
 ####### 選擇院系
 院_系 = st.text_input('以學系查詢請輸入 0, 以學院查詢請輸入 1 : ')
 
@@ -108,9 +106,8 @@ column_title = []
 ###### Part1-1 系師資素質與專長
 #df_senior.iloc[:,9] ## 1. 系師資素質與專長
 #df_senior.columns[9][3:]  ## '系師資素質與專長'
-if df_senior.any():
-    column_title.append(df_senior.columns[9][3:])
-    #type(df_senior.iloc[:,9])  ## pandas.core.series.Series
+column_title.append(df_senior.columns[9][3:])
+#type(df_senior.iloc[:,9])  ## pandas.core.series.Series
 
 ##### 计算不同子字符串的出现次数
 value_counts = df_senior.iloc[:,9].value_counts()  
