@@ -4600,11 +4600,11 @@ with st.expander("畢業系所在辦理教學上的評價 (滿分10):"):
 
 
     if 院_系 == '1':
-        collections = [df_senior]
+        collections = [df_senior,df_senior_original]
         #### 将三組dataframes 對於 column_index 所在的行的資料, 將其转换为数值类型float，忽略无法转换的值
         Series = [df[df.columns[column_index]].apply(to_numeric_ignore_special_str) for df in collections]
         #### 将这些 Series 合并为一个 DataFrame
-        combined_df = pd.DataFrame({choice: Series[0].values})
+        combined_df = pd.DataFrame({choice: Series[0].values, '全校': Series[1].values})
 
 
         #### 設置中文顯示
@@ -4742,11 +4742,11 @@ with st.expander("和國內其他類似系所相較，畢業系所競爭力 (滿
 
 
     if 院_系 == '1':
-        collections = [df_senior]
+        collections = [df_senior,df_senior_original]
         #### 将三組dataframes 對於 column_index 所在的行的資料, 將其转换为数值类型float，忽略无法转换的值
         Series = [df[df.columns[column_index]].apply(to_numeric_ignore_special_str) for df in collections]
         #### 将这些 Series 合并为一个 DataFrame
-        combined_df = pd.DataFrame({choice: Series[0].values})
+        combined_df = pd.DataFrame({choice: Series[0].values, '全校': Series[1].values})
 
 
         #### 設置中文顯示
