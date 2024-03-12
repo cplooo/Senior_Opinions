@@ -181,6 +181,14 @@ def adjust_df(df, order):
     return df
 
 
+@st.cache_data(ttl=3600, show_spinner="正在處理資料...")  ## Add the caching decorator
+#### 轉變資料型態為float:
+### 定义一个函数来转换每一行为数值类型，非数值转为 NaN 
+def to_numeric_ignore_special_str(column):
+    return pd.to_numeric(column, errors='coerce')
+
+
+
 
 
 
@@ -4550,7 +4558,148 @@ with st.expander("畢業系所在辦理教學上的評價 (滿分10):"):
     column_title.append(df_senior.columns[column_index][3:])
     
     
+    ##### 使用Streamlit畫單一圖
+    # st.markdown(f"圖形中項目(由下至上): {result_df['項目'].values.tolist()}")
+    if 院_系 == '0':
+        collections = [df_senior, df_senior_faculty, df_senior_original]
+        #### 将三組dataframes 對於 column_index 所在的行的資料, 將其转换为数值类型float，忽略无法转换的值
+        Series = [df[df.columns[column_index]].apply(to_numeric_ignore_special_str) for df in collections]
+        #### 将这些 Series 合并为一个 DataFrame
+        combined_df = pd.DataFrame({choice: Series[0], choice_faculty: Series[1], '全校': Series[2]})
+
+        #### 設置 matplotlib 支持中文的字體: 
+        # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
+        # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+        # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+        matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+        matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
+        #### 设置字体大小
+        title_fontsize = 15
+        xlabel_fontsize = 14
+        ylabel_fontsize = 14
+        xticklabel_fontsize = 14
+        yticklabel_fontsize = 14
+        annotation_fontsize = 8
+        legend_fontsize = 14
+
+        plt.figure(figsize=(10, 6))
+        sns.boxplot(data=combined_df)
+
+        #### 标示平均值
+        for i in range(combined_df.shape[1]):
+            y = combined_df.iloc[:, i].mean()
+            plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 14)
+        plt.title(item_name,fontsize=title_fontsize)
+        plt.ylim(0, 11)
+        plt.ylabel('分數',fontsize=ylabel_fontsize)
+        plt.xticks(fontsize=xticklabel_fontsize)  #
+        # plt.show()
+        #### 在Streamlit中显示
+        st.pyplot(plt)
+
+
+    if 院_系 == '1':
+        collections = [df_senior]
+        #### 将三組dataframes 對於 column_index 所在的行的資料, 將其转换为数值类型float，忽略无法转换的值
+        Series = [df[df.columns[column_index]].apply(to_numeric_ignore_special_str) for df in collections]
+        #### 将这些 Series 合并为一个 DataFrame
+        combined_df = pd.DataFrame({choice: Series[0]})
+
+
+        #### 設置中文顯示
+        # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
+        # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+        matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+        matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
+        #### 设置字体大小
+        title_fontsize = 15
+        xlabel_fontsize = 14
+        ylabel_fontsize = 14
+        xticklabel_fontsize = 14
+        yticklabel_fontsize = 14
+        annotation_fontsize = 8
+        legend_fontsize = 14
+
+        plt.figure(figsize=(10, 6))
+        sns.boxplot(data=combined_df)
+        ### 标示平均值
+        for i in range(combined_df.shape[1]):
+            y = combined_df.iloc[:, i].mean()
+            plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 14)
+        plt.title(item_name,fontsize=title_fontsize)
+        plt.ylim(0, 11)
+        plt.ylabel('分數',fontsize=ylabel_fontsize)
+        plt.xticks(fontsize=xticklabel_fontsize)  #
+        # plt.show()
+        ### 在Streamlit中显示
+        st.pyplot(plt)
+
+
+    ##### 使用streamlit 畫比較圖
+    # st.subheader("不同單位比較")
+    if 院_系 == '0':
+        ## 使用multiselect组件让用户进行多重选择
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
+       
+        
+    elif 院_系 == '1':
+        ## 使用multiselect组件让用户进行多重选择
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
+
+
+    #### 将所選擇的系或院的dataframes 對於 column_index 所在的行的資料, 將其转换为数值类型float，忽略无法转换的值
+    Series = [df[df.columns[column_index]].apply(to_numeric_ignore_special_str) for df in collections]
+    #### 将这些 Series 合并为一个 DataFrame (以selected_options為行名, Series為每一行的值)
+    combined_df = pd.DataFrame(dict(zip(selected_options, Series)))
+     
+        
+    #### 設置 matplotlib 支持中文的字體: 
+    # matplotlib.rcParams['font.family']pd.DataFrame( = 'Microsoft YaHei'
+    # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+    # matplotlib.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+    matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+    matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
+    #### 设置字体大小
+    title_fontsize = 15
+    xlabel_fontsize = 14
+    ylabel_fontsize = 14
+    xticklabel_fontsize = 14
+    yticklabel_fontsize = 14
+    annotation_fontsize = 8
+    legend_fontsize = 14
+
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=combined_df)
+
+    #### 标示平均值
+    for i in range(combined_df.shape[1]):
+        y = combined_df.iloc[:, i].mean()
+        plt.text(i, y, f'{y:.2f}', ha='center', va='center',fontweight='bold', color='blue',fontsize = 14)
+    plt.title(item_name,fontsize=title_fontsize)
+    plt.ylim(0, 11)
+    plt.ylabel('分數',fontsize=ylabel_fontsize)
+    plt.xticks(fontsize=xticklabel_fontsize)  #
+    # plt.show()
+    #### 在Streamlit中显示
+    st.pyplot(plt)
+
+
+st.markdown("##")  ## 更大的间隔
     
+
+
+
+
+
+
+
+
+
 ###### Part3-5 和國內其他類似系所相較，畢業系所競爭力
 with st.expander("和國內其他類似系所相較，畢業系所競爭力 (滿分10):"):
     # df_senior.iloc[:,31] ## 5. 和國內其他類似系所相較，您覺得畢業的系所競爭力如何？
