@@ -4554,7 +4554,7 @@ st.markdown("##")  ## 更大的间隔
 with st.expander("畢業系所在辦理教學上的評價 (滿分10):"):
     # df_senior.iloc[:,30] ## 4. 整體而言，您對畢業系所在辦理教學上的評價如何？
     column_index = 30
-    item_name = "畢業系所在辦理教學上的評價"
+    item_name = "畢業系所在辦理教學上的評價(數字為平均值)"
     column_title.append(df_senior.columns[column_index][3:])
     
     
