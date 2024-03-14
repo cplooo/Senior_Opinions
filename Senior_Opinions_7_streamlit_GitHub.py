@@ -202,6 +202,9 @@ df_senior_original = pd.read_pickle('df_senior.pkl')
 df_senior_original.rename(columns={'畢業院系': '科系', '學院別': '學院'}, inplace=True)
 # df_senior_original.columns
 
+###### 更改 '資科系(統資系)' 的名稱: '資科系(統資系)'->'資科系'
+df_senior_original['科系'] = df_senior_original['科系'].replace({'資科系(統資系)': '資科系'})
+
 ###### 更改院的名稱: 理學->理學院, 資訊->資訊學院, 管理->管理學院, 人社->人文暨社會科學院, 國際->國際學院, 外語->外語學院
 ##### 定义替换规则
 replace_rules = {
