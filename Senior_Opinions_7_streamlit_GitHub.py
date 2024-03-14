@@ -4914,13 +4914,13 @@ with st.expander("3-4 畢業系所在辦理教學上的評價 (滿分10):"):
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
        
         
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
 
 
@@ -5056,13 +5056,13 @@ with st.expander("3-5 和國內其他類似系所相較，畢業系所競爭力 
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
        
         
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
 
 
@@ -10137,13 +10137,13 @@ with st.expander("8-4 整體而言，您對畢業母校在辦理教學上的評�
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
        
         
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
 
 
@@ -10279,13 +10279,13 @@ with st.expander("8-5 和國內其他大學相較，您覺得畢業母校競爭�
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
        
         
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
 
 
