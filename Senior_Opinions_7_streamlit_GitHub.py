@@ -202,9 +202,19 @@ df_senior_original = pd.read_pickle('df_senior.pkl')
 df_senior_original.rename(columns={'畢業院系': '科系', '學院別': '學院'}, inplace=True)
 # df_senior_original.columns
 
-# ###### 更改院的名稱: 理學->理學院, 資訊->資訊學院, 管理->管理學院, 人社->人文暨社會科學院, 國際->國際學院, 外語->外語學院
-# df_senior_original.rename(columns={'畢業院系': '科系', '學院別': '學院'}, inplace=True)
-# df_senior_original['學院別']
+###### 更改院的名稱: 理學->理學院, 資訊->資訊學院, 管理->管理學院, 人社->人文暨社會科學院, 國際->國際學院, 外語->外語學院
+##### 定义替换规则
+replace_rules = {
+    '理學': '理學院',
+    '資訊': '資訊學院',
+    '管理': '管理學院',
+    '人社': '人文暨社會科學院',
+    '國際': '國際學院',
+    '外語': '外語學院'
+}
+
+##### 应用替换规则
+df_senior_original['學院'] = df_senior_original['學院'].replace(replace_rules)
 
 
 # ####### 读取Excel文件
