@@ -513,7 +513,7 @@ with st.expander("Part 1. 1-1 系師資素質與專長滿意度:"):
         combined_df = pd.concat(dataframes, keys=selected_options)
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
