@@ -9375,13 +9375,18 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
     # st.markdown(f"圖形中項目(由下至上): {result_df['項目'].values.tolist()}")
     if 院_系 == '0':
         collections = [df_senior, df_senior_faculty, df_senior_original]
-        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
+        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]  ## 'dataframes' list 中的各dataframe已經是按照次數高至低的項目順序排列
         ## 形成所有學系'項目'欄位的所有值
         # desired_order  = list(set([item for df in dataframes for item in df['項目'].tolist()]))
-        desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+        # desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+        #### 只看所選擇學系的項目(已經是按照次數高至低的項目順序排列), 並且反轉次序使得表與圖的項目次序一致
+        desired_order  = [item for item in dataframes[0]['項目'].tolist()]  ## 只看所選擇學系的項目
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])
+        # 获取level 0索引的唯一值并保持原始顺序
+        unique_level0 = combined_df.index.get_level_values(0).unique()
 
         #### 設置 matplotlib 支持中文的字體: 
         # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
@@ -9403,7 +9408,9 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
         legend_fontsize = 14
         #### 绘制条形
         fig, ax = plt.subplots(figsize=(10, 6))
-        for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+        # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+        for i, college_name in enumerate(unique_level0):            
+            df = combined_df.loc[college_name]
             # 计算当前分组的条形数量
             num_bars = len(df)
             # 生成当前分组的y轴位置
@@ -9454,6 +9461,8 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
         #### 创建图形和坐标轴
         plt.figure(figsize=(11, 8))
         #### 绘制条形图
+        ### 反轉 dataframe result_df 的所有行的值的次序,  使得表與圖的項目次序一致
+        result_df = result_df.iloc[::-1].reset_index(drop=True)
         plt.barh(result_df['項目'], result_df['人數'], label=choice)
         #### 標示比例數據
         for i in range(len(result_df['項目'])):
@@ -9478,7 +9487,7 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
@@ -9488,7 +9497,7 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
         combined_df = pd.concat(dataframes, keys=selected_options)
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
@@ -9497,6 +9506,9 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
         
+    # 获取level 0索引的唯一值并保持原始顺序
+    unique_level0 = combined_df.index.get_level_values(0).unique()
+
     #### 設置 matplotlib 支持中文的字體: 
     # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
     # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
@@ -9517,7 +9529,9 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
     legend_fontsize = 14
     #### 绘制条形
     fig, ax = plt.subplots(figsize=(10, 6))
-    for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    for i, college_name in enumerate(unique_level0):            
+        df = combined_df.loc[college_name]
         # 计算当前分组的条形数量
         num_bars = len(df)
         # 生成当前分组的y轴位置
@@ -9559,7 +9573,7 @@ with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一�
     ### 在Streamlit中显示
     st.pyplot(plt)
 
-st.markdown("##")  ## 更大的间隔
+st.markdown("##")  ## 更大的间隔  
 
 
 
@@ -9596,13 +9610,18 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
     # st.markdown(f"圖形中項目(由下至上): {result_df['項目'].values.tolist()}")
     if 院_系 == '0':
         collections = [df_senior, df_senior_faculty, df_senior_original]
-        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
+        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]  ## 'dataframes' list 中的各dataframe已經是按照次數高至低的項目順序排列
         ## 形成所有學系'項目'欄位的所有值
         # desired_order  = list(set([item for df in dataframes for item in df['項目'].tolist()]))
-        desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+        # desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+        #### 只看所選擇學系的項目(已經是按照次數高至低的項目順序排列), 並且反轉次序使得表與圖的項目次序一致
+        desired_order  = [item for item in dataframes[0]['項目'].tolist()]  ## 只看所選擇學系的項目
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])
+        # 获取level 0索引的唯一值并保持原始顺序
+        unique_level0 = combined_df.index.get_level_values(0).unique()
 
         #### 設置 matplotlib 支持中文的字體: 
         # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
@@ -9624,7 +9643,9 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
         legend_fontsize = 14
         #### 绘制条形
         fig, ax = plt.subplots(figsize=(10, 6))
-        for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+        # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+        for i, college_name in enumerate(unique_level0):            
+            df = combined_df.loc[college_name]
             # 计算当前分组的条形数量
             num_bars = len(df)
             # 生成当前分组的y轴位置
@@ -9675,6 +9696,8 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
         #### 创建图形和坐标轴
         plt.figure(figsize=(11, 8))
         #### 绘制条形图
+        ### 反轉 dataframe result_df 的所有行的值的次序,  使得表與圖的項目次序一致
+        result_df = result_df.iloc[::-1].reset_index(drop=True)
         plt.barh(result_df['項目'], result_df['人數'], label=choice)
         #### 標示比例數據
         for i in range(len(result_df['項目'])):
@@ -9699,7 +9722,7 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
@@ -9709,7 +9732,7 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
         combined_df = pd.concat(dataframes, keys=selected_options)
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
@@ -9718,6 +9741,9 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
         
+    # 获取level 0索引的唯一值并保持原始顺序
+    unique_level0 = combined_df.index.get_level_values(0).unique()
+
     #### 設置 matplotlib 支持中文的字體: 
     # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
     # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
@@ -9738,7 +9764,9 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
     legend_fontsize = 14
     #### 绘制条形
     fig, ax = plt.subplots(figsize=(10, 6))
-    for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    for i, college_name in enumerate(unique_level0):            
+        df = combined_df.loc[college_name]
         # 计算当前分组的条形数量
         num_bars = len(df)
         # 生成当前分组的y轴位置
@@ -9780,7 +9808,7 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
     ### 在Streamlit中显示
     st.pyplot(plt)
 
-st.markdown("##")  ## 更大的间隔
+st.markdown("##")  ## 更大的间隔  
 
 
 
@@ -9817,13 +9845,18 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
     # st.markdown(f"圖形中項目(由下至上): {result_df['項目'].values.tolist()}")
     if 院_系 == '0':
         collections = [df_senior, df_senior_faculty, df_senior_original]
-        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
+        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]  ## 'dataframes' list 中的各dataframe已經是按照次數高至低的項目順序排列
         ## 形成所有學系'項目'欄位的所有值
         # desired_order  = list(set([item for df in dataframes for item in df['項目'].tolist()]))
-        desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+        # desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+        #### 只看所選擇學系的項目(已經是按照次數高至低的項目順序排列), 並且反轉次序使得表與圖的項目次序一致
+        desired_order  = [item for item in dataframes[0]['項目'].tolist()]  ## 只看所選擇學系的項目
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])
+        # 获取level 0索引的唯一值并保持原始顺序
+        unique_level0 = combined_df.index.get_level_values(0).unique()
 
         #### 設置 matplotlib 支持中文的字體: 
         # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
@@ -9845,7 +9878,9 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
         legend_fontsize = 14
         #### 绘制条形
         fig, ax = plt.subplots(figsize=(10, 6))
-        for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+        # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+        for i, college_name in enumerate(unique_level0):            
+            df = combined_df.loc[college_name]
             # 计算当前分组的条形数量
             num_bars = len(df)
             # 生成当前分组的y轴位置
@@ -9896,6 +9931,8 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
         #### 创建图形和坐标轴
         plt.figure(figsize=(11, 8))
         #### 绘制条形图
+        ### 反轉 dataframe result_df 的所有行的值的次序,  使得表與圖的項目次序一致
+        result_df = result_df.iloc[::-1].reset_index(drop=True)
         plt.barh(result_df['項目'], result_df['人數'], label=choice)
         #### 標示比例數據
         for i in range(len(result_df['項目'])):
@@ -9920,7 +9957,7 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=['化科系','企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
@@ -9930,7 +9967,7 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
         combined_df = pd.concat(dataframes, keys=selected_options)
     elif 院_系 == '1':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=['理學','資訊'],key=str(column_index)+'f')
+        selected_options = st.multiselect('選擇比較學院：', df_senior_original['學院'].unique(), default=[choice,'資訊學院'],key=str(column_index)+'f')
         collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
@@ -9939,6 +9976,9 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
         
+    # 获取level 0索引的唯一值并保持原始顺序
+    unique_level0 = combined_df.index.get_level_values(0).unique()
+
     #### 設置 matplotlib 支持中文的字體: 
     # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
     # matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei']
@@ -9959,7 +9999,9 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
     legend_fontsize = 14
     #### 绘制条形
     fig, ax = plt.subplots(figsize=(10, 6))
-    for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    for i, college_name in enumerate(unique_level0):            
+        df = combined_df.loc[college_name]
         # 计算当前分组的条形数量
         num_bars = len(df)
         # 生成当前分组的y轴位置
@@ -10001,8 +10043,7 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
     ### 在Streamlit中显示
     st.pyplot(plt)
 
-st.markdown("##")  ## 更大的间隔
-
+st.markdown("##")  ## 更大的间隔  
 
 
 ###### Part8-4 整體而言，您對畢業母校在辦理教學上的評價如何？
