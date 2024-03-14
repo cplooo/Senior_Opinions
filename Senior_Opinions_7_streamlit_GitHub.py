@@ -595,7 +595,7 @@ st.markdown("##")  ## 更大的间隔
 
 
 ###### Part1-2 系的教學品質
-with st.expander("系的教學品質滿意度:"):
+with st.expander("1-2 系的教學品質滿意度:"):
     # df_senior.iloc[:,10] ## 2. 系的教學品質
     column_index = 10
     item_name = "系的教學品質滿意度"
