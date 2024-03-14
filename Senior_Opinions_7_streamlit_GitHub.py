@@ -627,7 +627,7 @@ with st.expander("系的教學品質滿意度:"):
     # st.markdown(f"圖形中項目(由下至上): {result_df['項目'].values.tolist()}")
     if 院_系 == '0':
         collections = [df_senior, df_senior_faculty, df_senior_original]
-        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
+        dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]  ## 'dataframes' list 中的各dataframe已經是按照次數高至低的項目順序排列
         ## 形成所有學系'項目'欄位的所有值
         # desired_order  = list(set([item for df in dataframes for item in df['項目'].tolist()]))
         # desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
@@ -637,6 +637,8 @@ with st.expander("系的教學品質滿意度:"):
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])
+        # 获取level 0索引的唯一值并保持原始顺序
+        unique_level0 = combined_df.index.get_level_values(0).unique()
 
         #### 設置 matplotlib 支持中文的字體: 
         # matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
@@ -824,7 +826,6 @@ with st.expander("系的教學品質滿意度:"):
     st.pyplot(plt)
 
 st.markdown("##")  ## 更大的间隔  
-
 
 
 ###### Part1-3 系上師生間的互動關係
