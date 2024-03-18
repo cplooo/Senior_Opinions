@@ -5312,9 +5312,9 @@ with st.expander("Part 4. 4-1 協助學生瞭解就業市場現況與產業發�
     legend_fontsize = 14
     #### 绘制条形
     fig, ax = plt.subplots(figsize=(10, 6))
-    # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
-    for i, college_name in enumerate(unique_level0):            
-        df = combined_df.loc[college_name]
+    for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    # for i, college_name in enumerate(unique_level0):            
+    #     df = combined_df.loc[college_name]
         # 计算当前分组的条形数量
         num_bars = len(df)
         # 生成当前分组的y轴位置
