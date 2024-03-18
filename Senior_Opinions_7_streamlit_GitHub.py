@@ -4876,7 +4876,7 @@ with st.expander("3-4 畢業系所在辦理教學上的評價 (滿分10):"):
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
 
         #### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
@@ -4915,7 +4915,7 @@ with st.expander("3-4 畢業系所在辦理教學上的評價 (滿分10):"):
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
         ### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
             y = combined_df_boxplot.iloc[:, i].mean()
@@ -4966,7 +4966,7 @@ with st.expander("3-4 畢業系所在辦理教學上的評價 (滿分10):"):
     legend_fontsize = 14
 
     plt.figure(figsize=(10, 6))
-    sns.boxplot(data=combined_df)
+    sns.boxplot(data=combined_df_boxplot)
 
     #### 标示平均值
     for i in range(combined_df_boxplot.shape[1]):
@@ -5018,7 +5018,7 @@ with st.expander("3-5 和國內其他類似系所相較，畢業系所競爭力 
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
 
         #### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
@@ -5057,7 +5057,7 @@ with st.expander("3-5 和國內其他類似系所相較，畢業系所競爭力 
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
         ### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
             y = combined_df_boxplot.iloc[:, i].mean()
@@ -5108,7 +5108,7 @@ with st.expander("3-5 和國內其他類似系所相較，畢業系所競爭力 
     legend_fontsize = 14
 
     plt.figure(figsize=(10, 6))
-    sns.boxplot(data=combined_df)
+    sns.boxplot(data=combined_df_boxplot)
 
     #### 标示平均值
     for i in range(combined_df_boxplot.shape[1]):
@@ -10123,7 +10123,7 @@ with st.expander("8-4 整體而言，您對畢業母校在辦理教學上的評�
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
 
         #### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
@@ -10162,7 +10162,7 @@ with st.expander("8-4 整體而言，您對畢業母校在辦理教學上的評�
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
         ### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
             y = combined_df_boxplot.iloc[:, i].mean()
@@ -10213,7 +10213,7 @@ with st.expander("8-4 整體而言，您對畢業母校在辦理教學上的評�
     legend_fontsize = 14
 
     plt.figure(figsize=(10, 6))
-    sns.boxplot(data=combined_df)
+    sns.boxplot(data=combined_df_boxplot)
 
     #### 标示平均值
     for i in range(combined_df_boxplot.shape[1]):
@@ -10265,7 +10265,7 @@ with st.expander("8-5 和國內其他大學相較，您覺得畢業母校競爭�
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
 
         #### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
@@ -10304,7 +10304,7 @@ with st.expander("8-5 和國內其他大學相較，您覺得畢業母校競爭�
         legend_fontsize = 14
 
         plt.figure(figsize=(10, 6))
-        sns.boxplot(data=combined_df)
+        sns.boxplot(data=combined_df_boxplot)
         ### 标示平均值
         for i in range(combined_df_boxplot.shape[1]):
             y = combined_df_boxplot.iloc[:, i].mean()
@@ -10355,7 +10355,7 @@ with st.expander("8-5 和國內其他大學相較，您覺得畢業母校競爭�
     legend_fontsize = 14
 
     plt.figure(figsize=(10, 6))
-    sns.boxplot(data=combined_df)
+    sns.boxplot(data=combined_df_boxplot)
 
     #### 标示平均值
     for i in range(combined_df_boxplot.shape[1]):
