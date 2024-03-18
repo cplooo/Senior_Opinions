@@ -293,7 +293,7 @@ combined_df = pd.concat(dataframes, keys=selected_options)
 #     3    滿意  43  0.3981
 # '''
 unique_level0 = combined_df.index.get_level_values(0).unique()
-df = combined_df.loc['化科系']
+df = combined_df.loc[unique_level0[0]]
 
 
 
