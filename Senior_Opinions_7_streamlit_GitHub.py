@@ -229,7 +229,7 @@ df_senior_original['學院'] = df_senior_original['學院'].replace(replace_rule
 
 ####### 預先設定
 ###### 預設定院或系之選擇
-global 院_系, choice, df_senior, choice_faculty, df_senior_faculty, selected_options, collections, column_index, dataframes, desired_order, combined_df, unique_level0
+global 院_系, choice, df_senior, choice_faculty, df_senior_faculty, selected_options, collections, column_index, dataframes, desired_order, combined_df, unique_level0, df
 # global 院_系
 院_系=0
 ###### 預設定 df_senior 以防止在等待選擇院系輸入時, 發生後面程式df_senior讀不到資料而產生錯誤
@@ -293,6 +293,7 @@ combined_df = pd.concat(dataframes, keys=selected_options)
 #     3    滿意  43  0.3981
 # '''
 unique_level0 = combined_df.index.get_level_values(0).unique()
+df = combined_df.loc['化科系']
 
 
 ####### 設定呈現標題 
@@ -5304,9 +5305,9 @@ with st.expander("Part 4. 4-1 協助學生瞭解就業市場現況與產業發�
     legend_fontsize = 14
     #### 绘制条形
     fig, ax = plt.subplots(figsize=(10, 6))
-    for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
-    # for i, college_name in enumerate(unique_level0):            
-    #     df = combined_df.loc[college_name]
+    # for i, (college_name, df) in enumerate(combined_df.groupby(level=0)):
+    for i, college_name in enumerate(unique_level0):            
+        df = combined_df.loc[college_name]
         # 计算当前分组的条形数量
         num_bars = len(df)
         # 生成当前分组的y轴位置
