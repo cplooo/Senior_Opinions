@@ -279,7 +279,7 @@ dataframes = [adjust_df(df, desired_order) for df in dataframes]
 # '''
 
 combined_df = pd.concat(dataframes, keys=selected_options)
-combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])   ## 以上還沒有 '全校' 資料
+# combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])   ## 以上還沒有 '全校' 資料
 # ''' 
 #          項目  人數      比例
 # 財金系 0   不滿意   5  0.0538
