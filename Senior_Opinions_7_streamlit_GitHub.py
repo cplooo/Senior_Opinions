@@ -5264,7 +5264,7 @@ with st.expander("Part 4. 4-1 協助學生瞭解就業市場現況與產業發�
     # st.subheader("不同單位比較")
     if 院_系 == '0':
         ## 使用multiselect组件让用户进行多重选择
-        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'企管系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
+        selected_options = st.multiselect('選擇比較學系：', df_senior_original['科系'].unique(), default=[choice,'化科系'],key=str(column_index)+'d')  ## # selected_options = ['化科系','企管系']
         collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
