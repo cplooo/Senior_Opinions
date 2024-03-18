@@ -5314,7 +5314,8 @@ with st.expander("Part 4. 4-1 協助學生瞭解就業市場現況與產業發�
         # 生成当前分组的y轴位置
         index = np.arange(num_bars) + i * bar_width
         # index = r + i * bar_width
-        rects = ax.barh(index, df['比例'], height=bar_width, label=college_name)
+        # rects = ax.barh(index, df['比例'], height=bar_width, label=college_name)
+        rects = ax.bar(index, df['比例'], width=bar_width, label=college_name)
 
         # # 在每个条形上标示比例
         # for rect, ratio in zip(rects, df['比例']):
@@ -5334,15 +5335,26 @@ with st.expander("Part 4. 4-1 協助學生瞭解就業市場現況與產業發�
     # ax.set_xticklabels(dataframes[0]['項目'].values, fontsize=xticklabel_fontsize)
     # # ax.set_xticklabels(['非常滿意', '滿意', '普通', '不滿意','非常不滿意'],fontsize=xticklabel_fontsize)
 
-    ### 设置y轴刻度标签
-    ax.set_yticks(r + bar_width*(len(dataframes) / 2))  # 调整位置以使标签居中对齐到每个条形
-    ax.set_yticklabels(dataframes[0]['項目'].values, fontsize=yticklabel_fontsize)
+    # ### 设置y轴刻度标签
+    # ax.set_yticks(r + bar_width*(len(dataframes) / 2))  # 调整位置以使标签居中对齐到每个条形
+    # ax.set_yticklabels(dataframes[0]['項目'].values, fontsize=yticklabel_fontsize)
+    
+    ### 设置x轴刻度标签
+    ax.set_xticks(r + bar_width*(len(dataframes) / 2))  # 调整位置以使标签居中对齐到每个条形
+    ax.set_xticklabels(dataframes[0]['項目'].values, fontsize=yticklabel_fontsize)
 
 
-    ### 设置标题和轴标签
+    ### 设置标题
     ax.set_title(item_name,fontsize=title_fontsize)
-    # ax.set_xlabel('满意度',fontsize=xlabel_fontsize)
-    ax.set_xlabel('比例',fontsize=xlabel_fontsize)
+    
+    # ### 设置x轴标签
+    # # ax.set_xlabel('满意度',fontsize=xlabel_fontsize)
+    # ax.set_xlabel('比例',fontsize=xlabel_fontsize)
+    
+    ### 设置y轴标签
+    # ax.set_ylabel('满意度',fontsize=xlabel_fontsize)
+    ax.set_ylabel('比例',fontsize=xlabel_fontsize)
+    
     ### 显示网格线
     plt.grid(True, linestyle='--', linewidth=0.5, color='gray')
     plt.tight_layout()
