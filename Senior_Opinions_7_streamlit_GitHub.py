@@ -246,7 +246,8 @@ collections = [df_senior_original[df_senior_original['科系']==i] for i in sele
 # collections = [df_senior, df_senior_faculty, df_senior_original]
 # len(collections) ## 2
 # type(collections[0])   ## pandas.core.frame.DataFrame
-dataframes = [Frequency_Distribution(df, 22) for df in collections]  ## 
+column_index = 9
+dataframes = [Frequency_Distribution(df, column_index) for df in collections]  ## 
 # len(dataframes)  ## 2
 # len(dataframes[1]) ## 4
 # len(dataframes[0]) ## 4
