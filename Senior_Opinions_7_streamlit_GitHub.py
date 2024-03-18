@@ -233,67 +233,69 @@ global 院_系, choice, df_senior, choice_faculty, df_senior_faculty, selected_o
 # global 院_系
 院_系=0
 ###### 預設定 df_senior 以防止在等待選擇院系輸入時, 發生後面程式df_senior讀不到資料而產生錯誤
-choice='財工系' ##'化科系'
+choice='財金系' ##'化科系'
 df_senior = df_senior_original[df_senior_original['科系']==choice]
 # choice_faculty = df_senior['學院'][0]  ## 選擇學系所屬學院: '理學院'
 choice_faculty = df_senior['學院'].values[0]  ## 選擇學系所屬學院: '理學院'
 df_senior_faculty = df_senior_original[df_senior_original['學院']==choice_faculty]  ## 挑出全校所屬學院之資料
 # df_senior_faculty['學院']  
-###### 預設定 selected_options, collections
-selected_options = ['財工系','企管系']
-# collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
-collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
-# collections = [df_senior, df_senior_faculty, df_senior_original]
-# len(collections) ## 2
-# type(collections[0])   ## pandas.core.frame.DataFrame
-column_index = 9
-dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]  ## 
-# len(dataframes)  ## 2
-# len(dataframes[1]) ## 4
-# len(dataframes[0]) ## 4
 
 
-##### 形成所有學系'項目'欄位的所有值
-desired_order  = list(set([item for df in dataframes for item in df['項目'].tolist()])) 
-# desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+# ###### 預設定 selected_options, collections
+# selected_options = ['財工系','企管系']
+# # collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
+# collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
+# # collections = [df_senior, df_senior_faculty, df_senior_original]
+# # len(collections) ## 2
+# # type(collections[0])   ## pandas.core.frame.DataFrame
+# column_index = 9
+# dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]  ## 
+# # len(dataframes)  ## 2
+# # len(dataframes[1]) ## 4
+# # len(dataframes[0]) ## 4
 
-##### 缺的項目值加以擴充， 並統一一樣的項目次序
-dataframes = [adjust_df(df, desired_order) for df in dataframes]
-# len(dataframes)  ## 2
-# len(dataframes[1]) ## 4
-# len(dataframes[0]) ## 4
-# dataframes[0]['項目']
-# '''
-# 0     不滿意
-# 1      普通
-# 2    非常滿意
-# 3      滿意
-# Name: 項目, dtype: object
-# '''
-# dataframes[1]['項目']
-# '''
-# 0     不滿意
-# 1      普通
-# 2    非常滿意
-# 3      滿意
-# Name: 項目, dtype: object
-# '''
 
-combined_df = pd.concat(dataframes, keys=selected_options)
-# combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])   ## 以上還沒有 '全校' 資料
-# ''' 
-#          項目  人數      比例
-# 財金系 0   不滿意   5  0.0538
-#     1    普通  27  0.2903
-#     2  非常滿意  14  0.1505
-#     3    滿意  47  0.5054
-# 管理  0   不滿意   1  0.0093
-#     1    普通  38  0.3519
-#     2  非常滿意  26  0.2407
-#     3    滿意  43  0.3981
-# '''
-unique_level0 = combined_df.index.get_level_values(0).unique()
-df = combined_df.loc[unique_level0[0]]
+# ##### 形成所有學系'項目'欄位的所有值
+# desired_order  = list(set([item for df in dataframes for item in df['項目'].tolist()])) 
+# # desired_order  = list(set([item for item in dataframes[0]['項目'].tolist()])) 
+
+# ##### 缺的項目值加以擴充， 並統一一樣的項目次序
+# dataframes = [adjust_df(df, desired_order) for df in dataframes]
+# # len(dataframes)  ## 2
+# # len(dataframes[1]) ## 4
+# # len(dataframes[0]) ## 4
+# # dataframes[0]['項目']
+# # '''
+# # 0     不滿意
+# # 1      普通
+# # 2    非常滿意
+# # 3      滿意
+# # Name: 項目, dtype: object
+# # '''
+# # dataframes[1]['項目']
+# # '''
+# # 0     不滿意
+# # 1      普通
+# # 2    非常滿意
+# # 3      滿意
+# # Name: 項目, dtype: object
+# # '''
+
+# combined_df = pd.concat(dataframes, keys=selected_options)
+# # combined_df = pd.concat(dataframes, keys=[choice,choice_faculty,'全校'])   ## 以上還沒有 '全校' 資料
+# # ''' 
+# #          項目  人數      比例
+# # 財金系 0   不滿意   5  0.0538
+# #     1    普通  27  0.2903
+# #     2  非常滿意  14  0.1505
+# #     3    滿意  47  0.5054
+# # 管理  0   不滿意   1  0.0093
+# #     1    普通  38  0.3519
+# #     2  非常滿意  26  0.2407
+# #     3    滿意  43  0.3981
+# # '''
+# unique_level0 = combined_df.index.get_level_values(0).unique()
+# df = combined_df.loc[unique_level0[0]]
 
 
 
