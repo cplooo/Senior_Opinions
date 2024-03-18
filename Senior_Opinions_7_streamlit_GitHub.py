@@ -229,7 +229,7 @@ df_senior_original['學院'] = df_senior_original['學院'].replace(replace_rule
 
 ####### 預先設定
 ###### 預設定院或系之選擇
-global 院_系, choice, df_senior, choice_faculty, df_senior_faculty, selected_options, collections, column_index, dataframes, desired_order, combined_df, unique_level0
+global 院_系, choice, df_senior, choice_faculty, df_senior_faculty, selected_options, collections, column_index, dataframes, desired_order, combined_df
 
 院_系=0
 ###### 預設定 df_senior 以防止在等待選擇院系輸入時, 發生後面程式df_senior讀不到資料而產生錯誤
@@ -291,7 +291,7 @@ combined_df = pd.concat(dataframes, keys=selected_options)
 #     2  非常滿意  26  0.2407
 #     3    滿意  43  0.3981
 # '''
-unique_level0 = combined_df.index.get_level_values(0).unique()
+# unique_level0 = combined_df.index.get_level_values(0).unique()
 
 
 ####### 設定呈現標題 
