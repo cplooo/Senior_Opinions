@@ -233,14 +233,14 @@ global 院_系, choice, df_senior, choice_faculty, df_senior_faculty, selected_o
 # global 院_系
 院_系=0
 ###### 預設定 df_senior 以防止在等待選擇院系輸入時, 發生後面程式df_senior讀不到資料而產生錯誤
-choice='化科系' ##'化科系'
+choice='財工系' ##'化科系'
 df_senior = df_senior_original[df_senior_original['科系']==choice]
 # choice_faculty = df_senior['學院'][0]  ## 選擇學系所屬學院: '理學院'
 choice_faculty = df_senior['學院'].values[0]  ## 選擇學系所屬學院: '理學院'
 df_senior_faculty = df_senior_original[df_senior_original['學院']==choice_faculty]  ## 挑出全校所屬學院之資料
 # df_senior_faculty['學院']  
 ###### 預設定 selected_options, collections
-selected_options = ['化科系','企管系']
+selected_options = ['財工系','企管系']
 # collections = [df_senior_original[df_senior_original['學院']==i] for i in selected_options]
 collections = [df_senior_original[df_senior_original['科系']==i] for i in selected_options]
 # collections = [df_senior, df_senior_faculty, df_senior_original]
