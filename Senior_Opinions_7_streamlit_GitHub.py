@@ -537,6 +537,7 @@ with st.expander("1-1 系師資素質與專長滿意度:"):
         ## 形成所有學系'項目'欄位的所有值
         # desired_order  = list(set([item for df in dataframes for item in df['項目'].tolist()])) 
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -547,6 +548,7 @@ with st.expander("1-1 系師資素質與專長滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -773,6 +775,7 @@ with st.expander("1-2 系的教學品質滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -783,6 +786,7 @@ with st.expander("1-2 系的教學品質滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1006,6 +1010,7 @@ with st.expander("1-3 系上師生間的互動關係滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1016,6 +1021,7 @@ with st.expander("1-3 系上師生間的互動關係滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1241,6 +1247,7 @@ with st.expander("1-4 系課程內容滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1251,6 +1258,7 @@ with st.expander("1-4 系課程內容滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1476,6 +1484,7 @@ with st.expander("1-5 系對學生思辨與探究能力的培養滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1486,6 +1495,7 @@ with st.expander("1-5 系對學生思辨與探究能力的培養滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1711,6 +1721,7 @@ with st.expander("1-6 系對學生創新或創造力的培養滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1721,6 +1732,7 @@ with st.expander("1-6 系對學生創新或創造力的培養滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -1956,6 +1968,7 @@ with st.expander("1-7 系對學生在專業領域中具競爭力的培育滿意�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2181,6 +2194,7 @@ with st.expander("1-8 系修課規定滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2191,6 +2205,7 @@ with st.expander("1-8 系修課規定滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2416,6 +2431,7 @@ with st.expander("1-9 系的學習風氣滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2426,6 +2442,7 @@ with st.expander("1-9 系的學習風氣滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2662,6 +2679,7 @@ with st.expander("2-1 系的空間環境與設備滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2672,6 +2690,7 @@ with st.expander("2-1 系的空間環境與設備滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2897,6 +2916,7 @@ with st.expander("2-2 系行政人員的服務品質滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -2907,6 +2927,7 @@ with st.expander("2-2 系行政人員的服務品質滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3132,6 +3153,7 @@ with st.expander("2-3 系提供的工讀與獎助機會滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3142,6 +3164,7 @@ with st.expander("2-3 系提供的工讀與獎助機會滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3367,6 +3390,7 @@ with st.expander("2-4 系提供的相關學習活動滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3377,6 +3401,7 @@ with st.expander("2-4 系提供的相關學習活動滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3602,6 +3627,7 @@ with st.expander("2-5 系提供給學生的學習協助滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3612,6 +3638,7 @@ with st.expander("2-5 系提供給學生的學習協助滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3837,6 +3864,7 @@ with st.expander("2-6 系對學生的生涯輔導滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -3847,6 +3875,7 @@ with st.expander("2-6 系對學生的生涯輔導滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4072,6 +4101,7 @@ with st.expander("2-7 系對學生意見與需求的重視滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4082,6 +4112,7 @@ with st.expander("2-7 系對學生意見與需求的重視滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4316,6 +4347,7 @@ with st.expander("3-1 目前就讀系的聲譽滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4326,6 +4358,7 @@ with st.expander("3-1 目前就讀系的聲譽滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4551,6 +4584,7 @@ with st.expander("3-2 系的進步程度滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4561,6 +4595,7 @@ with st.expander("3-2 系的進步程度滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4786,6 +4821,7 @@ with st.expander("3-3 系定位與特色滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -4796,6 +4832,7 @@ with st.expander("3-3 系定位與特色滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -5313,6 +5350,7 @@ with st.expander("4-1 協助學生瞭解就業市場現況與產業發展趨勢�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -5325,6 +5363,7 @@ with st.expander("4-1 協助學生瞭解就業市場現況與產業發展趨勢�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -5563,6 +5602,7 @@ with st.expander("4-2 協助學生生涯發展與規劃滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -5575,6 +5615,7 @@ with st.expander("4-2 協助學生生涯發展與規劃滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -5802,6 +5843,7 @@ with st.expander("4-3 生涯與就業輔導服務品質滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -5814,6 +5856,7 @@ with st.expander("4-3 生涯與就業輔導服務品質滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6052,6 +6095,7 @@ with st.expander("5-1 提供國外修課、實習或交換學生機會滿意度:
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6062,6 +6106,7 @@ with st.expander("5-1 提供國外修課、實習或交換學生機會滿意度:
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6287,6 +6332,7 @@ with st.expander("5-2 提供與外籍人士或國際社群互動交流的機會�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6297,6 +6343,7 @@ with st.expander("5-2 提供與外籍人士或國際社群互動交流的機會�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6522,6 +6569,7 @@ with st.expander("5-3 外語學習機會與環境滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6532,6 +6580,7 @@ with st.expander("5-3 外語學習機會與環境滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6757,6 +6806,7 @@ with st.expander("5-4 提供瞭解外國政治、經濟、社會、文化情況�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -6767,6 +6817,7 @@ with st.expander("5-4 提供瞭解外國政治、經濟、社會、文化情況�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7003,6 +7054,7 @@ with st.expander("6-1 校園環境規劃與維護滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7013,6 +7065,7 @@ with st.expander("6-1 校園環境規劃與維護滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7238,6 +7291,7 @@ with st.expander("6-2 校園內的安全保障滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7248,6 +7302,7 @@ with st.expander("6-2 校園內的安全保障滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7472,6 +7527,7 @@ with st.expander("6-3 學校各項收費滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7482,6 +7538,7 @@ with st.expander("6-3 學校各項收費滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7707,6 +7764,7 @@ with st.expander("6-4 電腦網路設備滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7717,6 +7775,7 @@ with st.expander("6-4 電腦網路設備滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7942,6 +8001,7 @@ with st.expander("6-5 運動休閒設施滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -7952,6 +8012,7 @@ with st.expander("6-5 運動休閒設施滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8177,6 +8238,7 @@ with st.expander("6-6 學校生活機能便利性滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8187,6 +8249,7 @@ with st.expander("6-6 學校生活機能便利性滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8412,6 +8475,7 @@ with st.expander("6-7 學生宿舍數量滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8422,6 +8486,7 @@ with st.expander("6-7 學生宿舍數量滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8658,6 +8723,7 @@ with st.expander("7-1 學校的聲譽滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8668,6 +8734,7 @@ with st.expander("7-1 學校的聲譽滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8893,6 +8960,7 @@ with st.expander("7-2 學校的進步程度滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -8903,6 +8971,7 @@ with st.expander("7-2 學校的進步程度滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9128,6 +9197,7 @@ with st.expander("7-3 學校定位與特色滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9138,6 +9208,7 @@ with st.expander("7-3 學校定位與特色滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9362,6 +9433,7 @@ with st.expander("7-4 學校學風自由開放程度滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9372,6 +9444,7 @@ with st.expander("7-4 學校學風自由開放程度滿意度:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9608,6 +9681,7 @@ with st.expander("8-1 如果可以重來，您是否仍會就讀同一主修領�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9618,6 +9692,7 @@ with st.expander("8-1 如果可以重來，您是否仍會就讀同一主修領�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9843,6 +9918,7 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -9853,6 +9929,7 @@ with st.expander("8-2 如果可以重來，您是否仍會就讀本校的同一�
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -10078,6 +10155,7 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]
         combined_df = pd.concat(dataframes, keys=selected_options)
@@ -10088,6 +10166,7 @@ with st.expander("8-3 如果可以重來，您是否仍會就讀本校:"):
         dataframes = [Frequency_Distribution_1(df, column_index) for df in collections]
         ## 形成所有學系'項目'欄位的所有值
         desired_order  = list(dict.fromkeys([item for df in dataframes for item in df['項目'].tolist()]))
+        desired_order = desired_order[::-1]  ## 反轉次序使得表與圖的項目次序一致
         ## 缺的項目值加以擴充， 並統一一樣的項目次序
         dataframes = [adjust_df(df, desired_order) for df in dataframes]        
         combined_df = pd.concat(dataframes, keys=selected_options)
