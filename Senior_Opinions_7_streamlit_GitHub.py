@@ -376,9 +376,18 @@ elif 院_系 == '1':
 df_streamlit = []
 column_title = []
 
-####### Part1  
+####### Part1 
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 1</p>
+""", unsafe_allow_html=True) 
 ###### Part1-1 系師資素質與專長
-with st.expander("Part 1. 1-1 系師資素質與專長滿意度:"):
+with st.expander("1-1 系師資素質與專長滿意度:"):
     # df_senior.iloc[:,9] ## 1. 系師資素質與專長
     column_index = 9
     item_name = "系師資素質與專長滿意度"
@@ -2492,9 +2501,18 @@ st.markdown("##")  ## 更大的间隔
 
 
 
-####### Part2  
+####### Part2 
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 2</p>
+""", unsafe_allow_html=True) 
 ###### Part2-1 系的空間環境與設備  
-with st.expander("Part 2. 2-1 系的空間環境與設備滿意度:"):
+with st.expander("2-1 系的空間環境與設備滿意度:"):
     # df_senior.iloc[:,19] ## 1. 系的空間環境與設備
     column_index = 19
     item_name = "系的空間環境與設備滿意度"
@@ -4137,9 +4155,18 @@ with st.expander("2-7 系對學生意見與需求的重視滿意度:"):
 st.markdown("##")  ## 更大的间隔  
 
 
-####### Part3  
+####### Part3 
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 3.</p>
+""", unsafe_allow_html=True) 
 ###### Part3-1 目前就讀系的聲譽
-with st.expander("Part 3. 3-1 目前就讀系的聲譽滿意度:"):
+with st.expander("3-1 目前就讀系的聲譽滿意度:"):
     # df_senior.iloc[:,27] ## 1. 目前就讀系的聲譽
     column_index = 27
     item_name = "目前就讀系的聲譽滿意度"
@@ -5125,9 +5152,18 @@ with st.expander("3-5 和國內其他類似系所相較，畢業系所競爭力 
 st.markdown("##")  ## 更大的间隔
 
 
-####### Part4  
+####### Part4
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 4.</p>
+""", unsafe_allow_html=True)  
 ###### Part4-1 協助學生瞭解就業市場現況與產業發展趨勢
-with st.expander("Part 4. 4-1 協助學生瞭解就業市場現況與產業發展趨勢滿意度:"):
+with st.expander("4-1 協助學生瞭解就業市場現況與產業發展趨勢滿意度:"):
     # df_senior.iloc[:,33] ## 1. 協助學生瞭解就業市場現況與產業發展趨勢
     column_index = 33
     item_name = "協助學生瞭解就業市場現況與產業發展趨勢滿意度"
@@ -5855,9 +5891,18 @@ st.markdown("##")  ## 更大的间隔
 
 
 
-####### Part5  
+####### Part5 
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 5.</p>
+""", unsafe_allow_html=True) 
 ###### Part5-1 提供國外修課、實習或交換學生機會
-with st.expander("Part 5. 5-1 提供國外修課、實習或交換學生機會滿意度:"):
+with st.expander("5-1 提供國外修課、實習或交換學生機會滿意度:"):
     # df_senior.iloc[:,37] ## 1. 提供國外修課、實習或交換學生機會
     column_index = 37
     item_name = "提供國外修課、實習或交換學生機會滿意度"
@@ -6797,9 +6842,18 @@ st.markdown("##")  ## 更大的间隔
 
 
 
-####### Part6  
+####### Part6
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 6.</p>
+""", unsafe_allow_html=True)  
 ###### Part6-1 校園環境規劃與維護
-with st.expander("Part 6. 6-1 校園環境規劃與維護滿意度:"):
+with st.expander("6-1 校園環境規劃與維護滿意度:"):
     #df_senior.iloc[:,42] ## 1. 校園環境規劃與維護
     column_index = 42
     item_name = "校園環境規劃與維護滿意度"
@@ -8443,9 +8497,18 @@ st.markdown("##")  ## 更大的间隔
 
 
 
-####### Part7  
+####### Part7 
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 7.</p>
+""", unsafe_allow_html=True) 
 ###### Part7-1 學校的聲譽
-with st.expander("Part 7. 7-1 學校的聲譽滿意度:"):
+with st.expander("7-1 學校的聲譽滿意度:"):
     #df_senior.iloc[:,50] ## 1. 學校的聲譽
     column_index = 50
     item_name = "學校的聲譽滿意度"
@@ -9385,8 +9448,17 @@ st.markdown("##")  ## 更大的间隔
 
 
 ####### Part8  
+st.markdown("""
+<style>
+.bold-small-font {
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+</style>
+<p class="bold-small-font">Part 8.</p>
+""", unsafe_allow_html=True)
 ###### Part8-1 如果可以重來，您是否仍會就讀同一主修領域、學群或學類？
-with st.expander("Part 8. 8-1 如果可以重來，您是否仍會就讀同一主修領域、學群或學類:"):
+with st.expander("8-1 如果可以重來，您是否仍會就讀同一主修領域、學群或學類:"):
     #df_senior.iloc[:,55] ## 1. 如果可以重來，您是否仍會就讀同一主修領域、學群或學類？
     column_index = 55
     item_name = "如果可以重來，您是否仍會就讀同一主修領域、學群或學類"
