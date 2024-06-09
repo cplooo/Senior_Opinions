@@ -384,7 +384,7 @@ st.markdown("""
     font-weight:bold !important;
 }
 </style>
-<p class="bold-small-font">Part 1</p>
+<p class="bold-small-font">Part 1.</p>
 """, unsafe_allow_html=True) 
 ###### Part1-1 系師資素質與專長
 with st.expander("1-1 系師資素質與專長滿意度:"):
@@ -2509,7 +2509,7 @@ st.markdown("""
     font-weight:bold !important;
 }
 </style>
-<p class="bold-small-font">Part 2</p>
+<p class="bold-small-font">Part 2.</p>
 """, unsafe_allow_html=True) 
 ###### Part2-1 系的空間環境與設備  
 with st.expander("2-1 系的空間環境與設備滿意度:"):
